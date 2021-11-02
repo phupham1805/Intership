@@ -8,7 +8,8 @@
 ![image](image/1.jpg) 
 ### <span style="color:blue"> Distributions của Linux </span>
 1. Khái niệm, distro là gì?  
-Một bản phân phối Linux(Thường được gọi tắt là distro) là một hệ điều hành được tạo dựng từ tập hợp các phần mềm nhưng đều dựa trên hạt nhân Linux (Linux kernel)
+Một bản phân phối Linux(Thường được gọi tắt là distro) là một hệ điều hành được tạo dựng từ tập hợp các phần mềm nhưng đều dựa trên hạt nhân Linux (Linux kernel)  
+   - Hạt nhân Linux-Kernel có chức năng là cho phép hệ thống giao tiếp, quản lý và điều khiển các bộ phận phần cứng của máy tính. 
 2. Các nhánh và distro phổ biến  
 Vì là mã nguồn mở nên Bất cứ ai cũng có thể tạo một Distro và tự đặt tên (tuân theo luật)
 ### Loại hình các distro 
@@ -31,9 +32,9 @@ Vì là mã nguồn mở nên Bất cứ ai cũng có thể tạo một Distro v
         - Prugalware 
         - Rubix  
    - Các nhánh khác như:  
-        - Open SuSe: SuSE, Sun Java Desktop
+        - Open SUSE: SUSE, Sun Java Desktop
         - Linux From Scratch: Arch Linux, Crux Linux  
-        - Gentoo: Kororaa, RR4 Linux, Gentoox, Litrix     
+        - Gentoo: Kororaa, RR4 Linux, Gentoox, Litrix        
 3. Đặc điểm và So sánh các distro  
 - Tổng quan: 
    - Các distro hướng đến người dùng am hiểu và phát triển hệ thống: Arch Linux, Gentoo, Slackware. 
@@ -41,8 +42,8 @@ Vì là mã nguồn mở nên Bất cứ ai cũng có thể tạo một Distro v
    - Các distro hướng đến người dùng là doanh nghiệp và chính phủ: CentOs, RedHat.. 
    - Các distro hướng đến người dùng cá nhân: Ubuntu, openSuSE. 
 - Đặc điểm và so sánh:
-   - Ubuntu, SuSE
-       -Hướng nhiều đến GUI(Giao diện người dùng) để cấu hình hệ thống dễ sử dụng cho người dùng cá nhân.
+   - Ubuntu, SUSE
+       -Hướng nhiều đến GUI (Giao diện người dùng) để cấu hình hệ thống dễ sử dụng cho người dùng cá nhân.
        - Miễn phí cho người sử dụng, liên tục có phiên bản mới.
        - Ubuntu: Phiên bản hỗ trợ thông thường ( hỗ trợ đến YY .MM ) hoặc Phiên bản hỗ trợ lâu dài ( LTS - Long Term Support ). SuSE ( Persional Edition, Enterprise Edition )
     - RedHat, CentOs 
