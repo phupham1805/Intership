@@ -5,6 +5,7 @@
 
 ## <span style="color:blue"> Tham khảo </span>
 ----
+![image](image/1.jpg) 
 ### <span style="color:blue"> Distributions của Linux </span>
 1. Khái niệm, distro là gì?  
 Một bản phân phối Linux(Thường được gọi tắt là distro) là một hệ điều hành được tạo dựng từ tập hợp các phần mềm nhưng đều dựa trên hạt nhân Linux (Linux kernel)
@@ -57,3 +58,6 @@ Vì là mã nguồn mở nên Bất cứ ai cũng có thể tạo một Distro v
 
 ## <span style="color:blue"> Tham khảo </span> 
 
+[1]https://vi.wikipedia.org/wiki/B%E1%BA%A3n_ph%C3%A2n_ph%E1%BB%91i_Linux#B%E1%BA%A3n_ph%C3%A2n_ph%E1%BB%91i_ph%E1%BB%95_bi%E1%BA%BFn   
+[2]https://github.com/vinhducnguyen1708/Internship-VNPT-IT/blob/master/Linux/Overview%20Linux/Linux%20Distributions.md  
+[3]http://www.aboutlinux.info/2006/04/mind-map-of-linux-distributions.html 
