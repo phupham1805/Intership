@@ -23,6 +23,7 @@
 
 ### Mục đích:  
 
+
 *Mục đích của bài viết này là để tìm hiểu và làm việc với các file trong linux hiệu quả hơn*  
 
 ### Tham khảo
