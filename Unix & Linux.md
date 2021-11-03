@@ -26,7 +26,12 @@
 |Linux chủ yếu sử dụng đối với máy tính để bàn, máy tính cá nhân, điện thoại di động| Unix chủ yếu sử dụng đối với máy chủ, máy trạm, máy tính cấp cao|  
 |Cài đặt Linux khá tiết kiệm không đòi hỏi phần cứng đặc biệt cấp cao|Cài đặt Unix đòi hỏi phần cứng đặc biệt|  
 |Hệ thống tập tin Linux có dạng: xfs, ramfs, nfs, vfat, cramfsm ext3, ext4, ext2, ext1, ufs, autofs, devpts, ntfs...|Hệ thống tập tin Unix có dạng: zfs, js, hfx, gps, xfs, vxfs|  
-|Linux được phát triển bởi cộng đồng Linux đang hoạt động trên toàn thế giới|Unix được phát triển bởi các nhà phát triển của công ty AT&T|
+|Linux được phát triển bởi cộng đồng Linux đang hoạt động trên toàn thế giới|Unix được phát triển bởi các nhà phát triển của công ty AT&T|   
+
+## Tham khảo  
+
+[1]https://techshare.vn/linux/sanh-dieu-hanh-linux-va-unix  
+
 
 
 
