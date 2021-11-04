@@ -1,8 +1,8 @@
-## Mục lục  
-1. Hệ thống file trên Linux     
-2. Các lệnh thao tách file trên Linux  
+# Mục lục  
+1. **Hệ thống file trên Linux**     
+2. **Các lệnh thao tách file trên Linux**  
 
-#### Tham khảo  
+### Tham khảo  
 
 ----
 
