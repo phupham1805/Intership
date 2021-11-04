@@ -43,8 +43,9 @@
 - ls -al: liệt kê tất cả file và thư mục với thông tin chi tiết.  
 ![image](image/17.png)  
 
-- cd -: thay đổi thư mục phía trước vừa thực hiện.
-![image](image/18.png)  
+- cd -: thay đổi thư mục phía trước vừa thực hiện.  
+![image](image/18.png) 
+
 - cd .. lệnh sử dụng .. danh mục ẩn để di chuyển một mức độ đến danh mục gốc.
 - mv: di chuyển một file đến một danh mục khác.  
 - rm: lệnh tẩy một file đơn từ danh mục làm việc của bạn.  
