@@ -114,7 +114,7 @@
    - Group_owner: nhóm sở hữu mới của tập tin.
 ### Các lệnh SUID, SGID và STICKY    
 - SUID
-    - `|u+s(suid)|`cho phép thực thi được thực hiện dưới owner của file.    
+    - `|u+s(suid)|`cho phép thực thi được thực hiện dưới owner của file thay vì thực hiện dưới user đang login trên máy.
        - Cấu trúc lệnh:   
           - `chmod u+s file_name`    
           - `-R`: Áp dụng đối với thư mục làm cho lệnh chmod có tác dụng trên cả thư mục con(đệ quy).
@@ -122,7 +122,8 @@
     ![image](image/2.1.png)  
 
 - SGID
-    - `|g+s(sgid)`cho phép thực thi được thực hiện dưới owner group của file.  
+    - `|g+s(sgid)`: được sử dụng trong file thực thi (execute files) để cho phép việc thực thi được thực hiện dưới owner group của file thay vì thực hiện như group đang đăng nhập trong hệ thống.  
+    - SGID: cũng có thể được sử dụng để thay đổi ownership của file được tạo hoặc di chuyển nó đến 1 thư mục mà owner group của nó sẽ là owner group của thư mục chuyển đến thay vì group mà nó được tạo ra.
        - Cấu trúc lệnh:  
           - `chmod g+s file_name`   
           - -R: Áp dụng đối với thư mục làm cho lệnh chmod có tác dụng lên cả thư mục con (đệ quy).   
@@ -130,7 +131,7 @@
     ![image](image/2.2.png) 
 
 - Sticky bit:    
-    - `|o+(sticky)|`mục đích là ngăn chặn người dùng này xóa file người dùng khác.       
+    - `|o+(sticky)|` được dùng để chia sẻ, mục đích là ngăn chặn người dùng này xóa file người dùng khác. Chỉ có duy nhất owner file và root có quyền rename hay xóa file, thư mục khi nó được set sticky bit.     
        - Cấu trúc lệnh:    
           - `chmod o+t file_name`   
           - -R: Áp dụng đối với thư mục làm cho lệnh chmod có tác dụng lên cả thư mục con (đệ quy).  
