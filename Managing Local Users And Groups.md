@@ -48,7 +48,7 @@
     - Cấu trúc lệnh:   
        - `usermod [Options] login_name`   
        - -c: comment, tạo bí danh.  
-       - -l -d: thay đổi thư mục home.   
+       - -l -d: thay đổi thư mục  home.   
        - -g: chỉ định nhóm chính.   
        - -G: chỉ định nhóm phụ (nhóm mở rộng).  
        - -s: chỉ định shell cho user sử dụng.   
@@ -69,7 +69,8 @@
    - Cấu trúc lệnh:   
       - `chage [Options] login_name`   
       - -l: xem chính sách của 1 user.  
-      - -E: thiết lập ngày hết hạn cho account. Vd: `chage -E 2021-12-10 pdp1805`   
+      - -E: thiết lập ngày hết hạn cho account.   
+      Vd: `chage -E 2021-12-10 pdp1805`   
       - -I: thiết lập số ngày bị khóa sau khi hết hạn mật khẩu.   
       - -m: thiết lập số ngày tối thiểu được phép thay đổi password   
       - -M: thiết lập số ngày tối đa được phép thay đổi password  

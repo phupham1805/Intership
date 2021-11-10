@@ -113,22 +113,31 @@
       - -R: Áp dụng đối với thư mục cho lệnh chown có tác dụng lên cả thư mục con (đệ quy).   
    - Group_owner: nhóm sở hữu mới của tập tin.
 ### Các lệnh SUID, SGID và STICKY    
+- SUID
+    - `|u+s(suid)|`cho phép thực thi được thực hiện dưới owner của file.    
+       - Cấu trúc lệnh:   
+          - `chmod u+s file_name`    
+          - `-R`: Áp dụng đối với thư mục làm cho lệnh chmod có tác dụng trên cả thư mục con(đệ quy).
 
-- `|u+s(suid)|`cho phép thực thi được thực hiện dưới owner của file.    
+    ![image](image/2.1.png)  
 
-![image](image/39.png)  
+- SGID
+    - `|g+s(sgid)`cho phép thực thi được thực hiện dưới owner group của file.  
+       - Cấu trúc lệnh:  
+          - `chmod g+s file_name`   
+          - -R: Áp dụng đối với thư mục làm cho lệnh chmod có tác dụng lên cả thư mục con (đệ quy).   
 
-- `-R`: Áp dụng đối với thư mục làm cho lệnh chmod có tác dụng trên cả thư mục con(đệ quy).
-- `|g+s(sgid)`cho phép thực thi được thực hiện dưới owner group của file.   
+    ![image](image/2.2.png) 
 
-![image](image/40.png)   
-- `|o+(sticky)|`mục đích là ngăn chặn người dùng này xóa file người dùng khác.  
+- Sticky bit:    
+    - `|o+(sticky)|`mục đích là ngăn chặn người dùng này xóa file người dùng khác.       
+       - Cấu trúc lệnh:    
+          - `chmod o+t file_name`   
+          - -R: Áp dụng đối với thư mục làm cho lệnh chmod có tác dụng lên cả thư mục con (đệ quy).  
 
-![image](image/41.png) 
+    ![image](image/2.3.png) 
 - setuid = 4; setgid = 2; sticky = 1;
 ### Lệnh umask
-
-
 
 ## 2.Tham khảo
 [1]https://news.cloud365.vn/linux_basic-sticky-bit-suid-sgid/   
