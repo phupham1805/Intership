@@ -1,108 +1,111 @@
 # Mục lục  
-[1. Mô tả người sử dụng và chấp nhận nhóm](#1)  
-[2. Giành được quyền truy cập siêu người dùng](#2)  
-[3. Quản lý tài khoản người sử dụng cục bộ](#3)  
-[4. Quả lý tài khoản nhóm cục bộ](#4)  
-[5. Quản lý mật khẩu người sử dụng.](#5)
+[1. Quản lý tài khoản user](#1)  
+[2. Tạo user](#2)  
+[3. Tạo group](#3)  
 
 ## Tham khảo.   
 
 ----
 
-### 1.Mô tả người sử dụng và chấp nhận nhóm.
-- `ps`: lệnh để xem thông tin xử lý.  
-- `ps - a`: để xem xử lý tất cả với thiết bị đầu cuối.  
+## Root  
+- su: Đây là môi trường có thể hoạt động như người dùng (mở một subshell mới)  
+- sudo: Cho phép cài đặt các lệnh với quyền người dùng ngay trên subshell đó mà không cần phải chuyển sang chế độ root.       
 
-![image](image/29.png) 
-- `ps -au`: với một quá trình để xem người sử dụng có liên quan   
+### 1.Quản lý tài khoản user
 
-![image](image/30.png)
-- /etc/passwd file chứa thông tin về người một người sử dụng.
+- Mỗi user thường có đặc điểm như sau:  
+   - Tên tài khoản user là duy nhất, có thể đặt tên chữ thường, chữ hoa.  
+   - Mỗi user có 1 mã định danh duy nhất (uid)   
+   - Mỗi user có thể thuộc về nhiều group.  
+   - Tài khoản super user có uid=gid=0     
 
-![image](image/26.png)  
-- `uid`: số cho tài khoản sử dụng này.  
-- `gid`: số cho nhóm riêng tài khoản người sử dụng này.  
-- `id`: Lệnh được sử dụng để tìm về thành viên nhóm cho một người sử dụng.  
+- File /etc/passwd:   
+   - Là file văn bản chứa thông tin về các tài khoản user trên. Mọi user đều có thể đọc tập tin này nhưng chỉ có root mới có quyền thay đổi.   
+   - Để xem nội dung file ta dùng lệnh: `#cat /etc/passwd`   
 
-### 2.Giành được quyền truy cập siêu người dùng    
-![image](image/27.png)   
+    ![image](image/1.5.png)  
+- File /etc/shadow:   
+   - Là tập tin văn bản chứa các thông tin về mật khẩu của các tài khoản user trên máy.  
+   - Chỉ có user root mới có quyền đọc tập tin này. User root có quyền reset mật khẩu của bất kỳ ai trên máy.   
 
-- B1: Tạo user vào hệ thống   
-    `adduser <new_user>`   
-- B2: Thay đổi password cho user vừa tạo   
-     `passwd <new_user>`  
-- B3: Thêm user vừa khởi tạo vào nhóm wheel   
-     `usermod -aG wheel <new_user>`   
-- B4: Kiểm tra user bằng lệnh sudo.  
-     `su - <new_user>`   
-     `sudo - la`     
-
-![image](image/28.png)  
-
-### Lệnh su & sudo  
-- su [user]: chuyển sang user mới
-- su - [user]: sử dụng biến môi trường shell của user mới.  
-- sudo -i: Lệnh truy cập vào tài khoản root.    
-
-### 3.Quản lý tài khoản người sử dụng cục bộ   
-- Tạo người sử dụng:  
-`adduser` or `username`   
-`usermod`: Sửa đổi tài khoản người dùng.      
-- Biến đổi người sử dụng hiện có từ dòng lệnh.    
-- `userdel`: lệnh xóa tài khoản người dùng và các tệp liên quan.    
-
-|usermod|usage|  
-|----|----|   
-|-c|thêm tên người dùng thực để comment tập tin|   
-|-g|chỉ định một nhóm chính cho tài khoản người dung|   
-|-G|chỉ định một danh sách các nhóm bổ sung được phân tách bằng dấu phẩy cho tài khoản người sử dụng|  
-|-a|Sử dụng với lựa chọn -G để thêm nhóm bổ sung để người sử dụng hiện tại lập thành viên nhóm thay vì thay thế lập nhóm bổ sung với thiết kế mới|   
-|-d|chỉ định danh mục Home riêng từ tài khoản người sử dụng|  
-|-m|di chuyển người sử dụng danh mục Home đến một địa điểm mới. Phải sử dụng với lựa chọn -d|   
-|-s|chỉ một đăng nhập Shell riêng cho tài khoản người sử dụng|  
-|-L|khóa tài khoản người sử dụng|  
-|-U|mở khóa tài khoản người sử dụng|   
+   ![image](image/1.6.png)  
 
 
-### 4. Quản lý tài khoản nhóm cục bộ  
+### 2. Tạo User   
+----   
+*Khi làm việc với các công cụ như useradd, một số giá trị mặc định được giả sử. Những giá trị mặc định được đặt trong hai tệp cấu hình: /etc/login.defs và /etc/default/người dùng*    
+- Lệnh adduser: Tạo tài khoản user    
+    - Cấu trúc lệnh:   
+       - `useradd [Options] login_name`   
+       - -c: comment, tạo bí danh.  
+       - -u: set user ID. Mặc định sẽ lấy số ID tiếp theo để gán cho user.  
+       - -d: chỉ định thư mục home.  
+       - -g: chỉ định nhóm chính.  
+       - -G: chỉ định nhóm phụ (nhóm mở rộng).  
+       - -s: chỉ định shell cho user sử dụng.    
+    - Ví dụ:    
+- Lệnh usermod: Sửa thông tin tài khoản   
+    - Cấu trúc lệnh:   
+       - `usermod [Options] login_name`   
+       - -c: comment, tạo bí danh.  
+       - -l -d: thay đổi thư mục home.   
+       - -g: chỉ định nhóm chính.   
+       - -G: chỉ định nhóm phụ (nhóm mở rộng).  
+       - -s: chỉ định shell cho user sử dụng.   
+       - -L: Lock account.  
+       - -U: Unlock account.  
+- Lệnh passwd: Đổi password  
+    - Cấu trúc lệnh:  
+       - `passwd [login_name]   
+       passwd -n 31 -w 5 -x 100   
+       -  Cài password cho người dùng trong khoảng thời gian tối thiểu 31 ngày, hết hạn sau 100 ngày và có 5 ngày cảnh báo trước khi hết hạn.   
 
-- B1:Tạo nhóm sử dụng:  
-   `grounpadd`: tạo nhóm   
-    
-![image](image/31.png)
+- Lệnh Userdel: Xóa User.  
+    - Cấu trúc lệnh:   
+       - `userdel [Options] login_name`   
+       - -r: xóa thư mục home của user   
+    - Dòng mô tả tương ứng của user trong tập tin /etc/passwd và /etc/shadow cũng bị xóa.   
+- Lệnh chage: Dùng để thiết lập chính sách cho user.   
+   - Cấu trúc lệnh:   
+      - `chage [Options] login_name`   
+      - -l: xem chính sách của 1 user.  
+      - -E: thiết lập ngày hết hạn cho account. Vd: `chage -E 2021-12-10 pdp1805`   
+      - -I: thiết lập số ngày bị khóa sau khi hết hạn mật khẩu.   
+      - -m: thiết lập số ngày tối thiểu được phép thay đổi password   
+      - -M: thiết lập số ngày tối đa được phép thay đổi password  
+      - -W: Thiết lập số ngày cảnh báo trước khi hết hạn mật khẩu.   
+    - Ví dụ: `chage -E 2021-12-10 -m 5 -M 90 -I 10 -W 5 pdp1805`   
+*Lệnh trên sẽ thiết lập mật khẩu cho user pdp1805 hết hạn vào ngày 2021-12-10. Số ngày tối thiểu phải thay đổi mật khẩu là 5, số ngày tối đa là 90. Tài khoản sẽ bị khóa 10 ngày nếu hết hạn, sẽ có tin nhắn cảnh báo trước 5 ngày trước khi hết hạn.*    
 
-- B2:Thay đổi GID 10007   
-`sudo groupmod -g GID groupname`   
+### 3. Tạo group:   
 
-![image](image/32.png)  
-- B3: Thay đổi tên của một nhóm   
-`sudo groupmod -n NEWNAME oldname`    
+- Nhóm là tập hợp của nhiều user. Mỗi nhóm có tên duy nhất, và có một mã định danh duy nhất (gid). Khi tạo một user (không dùng option -g) thì mặc định một group được tạo ra.  
+- File /etc/group: Là file chứa thông tin về group user trên máy. Mọi user đều có thể đọc nhưng chỉ có root mới có quyền thay đổi.   
+![image](image/1.7.png)  
 
-![image](image/33.png)
-- B4: Thêm người dùng vào một nhóm  
-`sudo usermod -g groupname user01`  
+- Lệnh groupadd:    
+ 
+Cấu trúc: group [Options] Group  
+   - -g GID: Định nghĩa nhóm với mã nhóm GID  
+   - Group: Tên nhóm định nghĩa   
+   - Ví dụ: Tạo nhóm users   
+      *Tạo nhóm accouting với GID = 100  
+      `groupadd -g 200 accouting`   
+- Lệnh groupmod:   
+   - Cấu trúc lệnh: groupmod [Options] group   
+   - -g GID Sửa mã nhóm thành GID  
+   - -n group_name: Sửa tên nhóm thành group_nam.  
+   - Group: Tên nhóm cần chỉnh sửa   
+   - Ví dụ: *Sửa gid của nhóm user thành 101*  
+      `groupadd -g 101 users`   
+     Đổi tên nhóm accouting thành accouted  
+     `groupadd -n accouted accouting`   
+- Lệnh groupdel: dùng để xóa nhóm   
+   - Ví dụ: xóa nhóm testgroup   
+       `groupdel testgroup`  
 
-![image](image/34.png)   
+-----
 
-- B5: Xóa group   
-`sudo groupdel groupname`    
-
-- `usermod -aG `: thêm một người sử dụng đến một nhóm bổ sung.   
-
-- B6: Cấu hình nhóm Sudo   
-
-![image](image/36.png)
-
-### 5.Quản lý mật khẩu người sử dụng  
-Cấu hình lão hóa mật khẩu.
-![image](image/37.png)    
-
-- `chage -M date username`: thiết lập tuổi tối đa của mật khẩu người sử dụng.  
-- `chage username`: cấu hình quản lý mật khẩu.   
-
-![image](image/38.png)   
-
-- `date -d "+date days" +%F`: thêm ngày giới hạn cho tài khoản.   
 
 ## Tham khảo   
 

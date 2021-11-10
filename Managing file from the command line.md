@@ -23,8 +23,8 @@
 
 2. `Các lệnh thao tác file trên Linux`  
 
-- pwd: (print working directory) trình bày đầy đủ con đường của danh mục hiện tại đang làm việc.
-- ls: hiện danh sách file  
+- pwd: (print working directory) trình bày đầy đủ đường dẫn của thư mục hiện tại đang làm việc.
+- ls: hiện danh sách file   
 
 ![image](image/12.png)  
 - cd: di chuyển danh mục làm việc.  
