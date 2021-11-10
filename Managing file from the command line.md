@@ -27,7 +27,7 @@
 - ls: hiện danh sách file   
 
 ![image](image/12.png)  
-- cd: di chuyển danh mục làm việc.  
+- cd: di chuyển thư mục làm việc.  
 - touch: tạo một file mới trống thông qua dòng lệnh.  
 
 ![image](image/13.png) 
@@ -38,7 +38,7 @@
 ![image](image/15.png)  
 
 - ls -R: liệt kê các file bao gồm các thư mục phụ bên trong.  
-![image](image/16.png)
+![image](image/16.png) 
 
 - ls -al: liệt kê tất cả file và thư mục với thông tin chi tiết.  
 ![image](image/17.png)  
@@ -46,11 +46,11 @@
 - cd -: thay đổi thư mục phía trước vừa thực hiện.  
 ![image](image/18.png) 
 
-- cd .. lệnh sử dụng .. danh mục ẩn để di chuyển một mức độ đến danh mục gốc.
-- mv: di chuyển một file đến một danh mục khác.  
-- rm: lệnh tẩy một file đơn từ danh mục làm việc của bạn.  
-- rm -r: lệnh tẩy một danh mục con và nội dung của nó.  
-- rmdir: lệnh chỉ tẩy danh mục thành trống.  
+- cd .. lệnh sử dụng .. danh mục ẩn để di chuyển một mức độ đến thư mục gốc.
+- mv: di chuyển một file đến một thư mục khác.  
+- rm: lệnh tẩy một file đơn từ thư mục làm việc của bạn.  
+- rm -r: lệnh tẩy một thư mục con và nội dung của nó.  
+- rmdir: lệnh chỉ tẩy thư mục thành trống.  
 - cat: dùng để xem nội dung file  
     - cat>filename tạo ra file mới
     - cat>filename1 filename2>filename3 nhập 2 file (1 và 2) để lưu kết quả vào file (3)  

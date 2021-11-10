@@ -8,7 +8,7 @@
 ----
 
 ## Root  
-- su: Đây là môi trường có thể hoạt động như người dùng (mở một subshell mới)  
+- su: Đây là môi trường có thể hoạt động như người dùng (mở một subshell mới)   
 - sudo: Cho phép cài đặt các lệnh với quyền người dùng ngay trên subshell đó mà không cần phải chuyển sang chế độ root.       
 
 ### 1.Quản lý tài khoản user
