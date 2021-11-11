@@ -143,7 +143,6 @@
 - VD: Phân quyền cho file_name 752 thì ta thực thi    
     - umask: 026    
     - mkdir:  folder_name       
-
 Thì mặc định folder_name sẽ được phân quyền là 752     
 - Đồng thời lúc đó thì nó sẽ tự động phân quyền cho file trong folder là 640   
 
