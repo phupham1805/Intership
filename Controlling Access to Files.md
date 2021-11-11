@@ -11,7 +11,7 @@
 
 - Danh sách quyền truy cập được trình bày ở cột đầu tiên trong kết quả. Các loại quyền truy cập gồm:   
     - `Read` (r): Cho phép đọc nội dung tập tin và xem nội dung thư mục bằng lệnh ls  
-    - `Write` (w): Cho phép thay đổi nội dung hoặc xóa tập tin. Đối với thư mục, quyền này cho phép tạo, xóa hoặc đổi tên tập tin mà không phụ thuộc vào quyền sở hữu trên tập tin chứa trong thư mục.   
+    - `Write` (w): Cho phép thay đổi nội dung hoặc xóa tập tin. Đối với thư mục, quyền này cho phép tạo, xóa hoặc đổi tên tập ti mà không phụ thuộc vào quyền sở hữu trên tập tin chứa trong thư mục.   
     - `Execute` (x): Cho phép thực thi chương trình, đối với thư mục, quyền này cho phép chuyển hướng thư mục bằng lệnh `cd`.   
 
 - Quyền truy xuất gồm 3 nhóm:   
@@ -81,14 +81,12 @@
     `chmod [options] [mode] [file]`    
     - Options:  
        - -R: Áp dụng đối với thư mục cho lệnh `chmod` có tác dụng lên cả thư mục con (đệ quy).   
-   - Mode: Quyền truy xuất mới cho tập tin.       
+   - Mode: Quyền truy xuất mới cho tập tin.    
 
-|Nhóm-người-dùng|Thao tác|Quyền|    
-|----|----|----|   
-|u-user|+ :thêm quyền|r-read|   
-|g-group|- :xóa quyền|w-write|   
-|o-others|= :gán ngang quyền|x -excute|   
-|a -all|        
+|Nhóm người dùng|u-user|g-group|o-other|a-all|    
+|----|----|----|----|----|
+|Thao tác|+ :thêm quyền|- :xóa quyền|= :gán ngang quyền|      
+|Quyền|r-read|w-write|x-execute|          
 
 - Ví dụ 1:
   - Gán thêm quyền write cho group: chmod g+w namefile   
@@ -138,7 +136,17 @@
 
     ![image](image/2.3.png) 
 - setuid = 4; setgid = 2; sticky = 1;
-### Lệnh umask
+### Lệnh umask ll
+
+
+- Lệnh umask: phân quyền mặc định trên file/thư mục.    
+- VD: Phân quyền cho file_name 752 thì ta thực thi    
+    - umask: 026    
+    - mkdir:  folder_name       
+
+Thì mặc định folder_name sẽ được phân quyền là 752     
+- Đồng thời lúc đó thì nó sẽ tự động phân quyền cho file trong folder là 640   
+
 
 ## 2.Tham khảo
 [1]https://news.cloud365.vn/linux_basic-sticky-bit-suid-sgid/   
