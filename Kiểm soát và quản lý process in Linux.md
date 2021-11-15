@@ -1,14 +1,14 @@
 # Mục lục     
- [1.Listing processes](#1)  
- [2.Controlling jobs](#2)  
- [3.Killing processes](#3)  
- [4.Monitoring processes activity](#4)
+ * [1.Listing processes](#1)  
+ * [2.Controlling jobs](#2)  
+ * [3.Killing processes](#3)  
+ * [4.Monitoring processes activity](#4)
 
-## Tham khảo  
+## [Tham khảo](#5)  
 ----
 *Mục đích: có thể xem được thông tin về chương trình đang chạy trong một hệ thống để quyết định trạng thái, tài nguyên sử dụng, và quyền sở hữu, vì thế bạn có thể điều khiển chúng.*    
 
-### 1. Listing process  
+### 1. Listing process 
 - Một `process` là một phiên bản đang chạy của hệ điều hành, có thể thực thi chương trình. Một `process` bao gồm:   
    - Một không gian địa chỉ của bộ nhớ đã được phân bổ.   
    - Bảo mật  
@@ -79,8 +79,6 @@ VD: lệnh `ps`
 - Lệnh `ps j`: Trình bày thông tin liên quan đến jobs.  
 
 
-
-
-## Tham khảo   
+## 5.Tham khảo   
 [1]https://news.cloud365.vn/ps-command-tim-hieu-va-huong-dan-su-dung/   
 [2]https://bizflycloud.vn/tin-tuc/tim-hieu-ve-process-trong-linux-20210430234059408.htm
