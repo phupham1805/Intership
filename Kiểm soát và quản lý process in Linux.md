@@ -1,5 +1,5 @@
 # Mục lục     
- * [1. Listing processes](###1)  
+ * [1. Listing processes](#1)  
  * [2. Controlling jobs](#2)  
  * [3. Killing processes](#3)  
  * [4. Monitoring processes activity](#4)
@@ -15,8 +15,7 @@
    - Một hoặc nhiều quyền thực thi của mã chương trình   
    - Trạng thái process    
 - Môi trường của một process bao gồm:   
-   - Cục bộ và global   
-   - Văn bản kế hoạch hiện tại  
+   - Local và global    
    - Tài nguyên hệ thống đã được phân bổ, như là mô tả file và port mạng.  
 
 #### Mô tả trạng thái process   
