@@ -149,4 +149,3 @@ Thì mặc định folder_name sẽ được phân quyền là 752
 
 ## 2.Tham khảo
 [1]https://news.cloud365.vn/linux_basic-sticky-bit-suid-sgid/   
-[2]
