@@ -94,10 +94,16 @@ VD: lệnh `ps`
 
 - Lệnh `kill -l`: hiển thị danh sách tên và số của tất cả tín hiệu có sẵn.   
 ![image](image/1.10.png)    
-- Lệnh `pkill`: chỉ cần biết `pid` để kill process, thay vì phải biết số jobs.     
+- Lệnh `pkill`: chỉ cần biết `pid` or name để kill process, thay vì phải biết số jobs.      
+- Lệnh `killall`: kill tất cả các process theo name.   
+- Lệnh `ptree`: hiện thị process dưới dạng cây.     
+- Lệnh `pgrep`: Tra cứu hoặc báo hiệu các process dựa trên tên hoặc các thuộc tính khác.   
+    - Cấu trúc: `pgrep [name or diff]` 
+
+    ![image](image/1.12.png)
+- Lệnh `pidof`: tìm ID của process đang chạy.    
+![image](image/1.11.png) 
 - Lệnh `w`: hiện thị danh sách người dùng đăng nhập và process hiện tại đang chạy.   
-
-
 
 
 ## 5.Tham khảo   
