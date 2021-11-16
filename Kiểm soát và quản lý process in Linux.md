@@ -8,7 +8,7 @@
 ----
 *Mục đích: có thể xem được thông tin về chương trình đang chạy trong một hệ thống để quyết định trạng thái, tài nguyên sử dụng, và quyền sở hữu, vì thế bạn có thể điều khiển chúng.*    
 
-### 1. Listing process 
+### 1. Listing process
 - Một `process` là một phiên bản đang chạy của hệ điều hành, có thể thực thi chương trình. Một `process` bao gồm:   
    - Một không gian địa chỉ của bộ nhớ đã được phân bổ.   
    - Bảo mật  
@@ -16,7 +16,7 @@
    - Trạng thái process    
 - Môi trường của một process bao gồm:   
    - Local và global    
-   - Tài nguyên hệ thống đã được phân bổ, như là mô tả file và port mạng.  
+   - A current scheduling context. 
 
 #### Mô tả trạng thái process   
 - Mỗi CPU (or CPU core) chỉ đang làm việc trong một quy trình tại một thời điểm duy nhất.   
@@ -24,13 +24,12 @@
 |Name|Flag|Mô tả|   
 |----|----|----|   
 |Running|R|Process thì đang thực thi trong một CPU hoặc đang chờ để chạy|  
-|Sleeping|S |Gián đoạn: Process thì đang chờ cho một vài tình trạng: một yêu cầu phần cứng, truy cập tài nguyên hệ thống, hoặc tín hiệu|   
-|Sleeping|D|Không gián đoạn: Process thì chỉ đang ngủ, nhưng không giống như trạng thái S, không yêu cầu tới tín hiệu, đang đợi I/O|  
-|Sleeping|K|Có thể kill: Chỉ định đến trạng thái D không gián đoạn, nhưng biến đổi để cho phép một task đang chờ tới yêu cầu đến  tín hiệu|   
-|Sleeping|I| Báo cáo: một tập hợp con của trạng thái D|  
+|Sleeping|S |Process thì đang chờ một vài tình trạng|   
+|Daemon|D|Process đang đợi I/O|  
+|Kill|K|Dừng process để cho phép một task đang chờ yêu cầu đến tín hiệu|    
 |Stopped|T|Process đang trong quá trình dừng chạy|   
-|Zombie|Z| Đây là các tiến trình con đã bị chấm dứt nhưng chưa được giải phóng bởi parent process|  
-|Zombie|X|Khi parent process dọn lên (reaps) duy trì kết cấu child process, Process bây giờ sẽ được hoàn thành.|   
+|Zombie|Z|Process bị chấm dứt nhưng chưa được giải phóng bởi parent process|  
+|Execute|X|Process đã được hoàn thành |   
 ||<| Process có độ ưu tiên cao, có thể có nhiều thời gian CPU hơn|   
 ||N|Process có độ ưu tiên thấp, chỉ có thể chiếm CPU khi các process khác có độ ưu cao hơn hết thời gian CPU|   
 
@@ -60,22 +59,45 @@ VD: lệnh `ps`
 
    - `PID`: Id của tiến trình   
    - `TTY`: Thông tin terminal mà người dùng đăng nhập.  
-   - `TIME`: Lượng CPU tính bằng phút giây mà tiến trình đó chạy.   
+   - `TIME`: Thời gian CPU bị khởi động bởi process.
    - `CMD`: Câu lệnh để thực hiện process đó.   
 
 
-## 2.Controlling jobs    
+## 2. Controlling jobs    
 - Có 2 loại process: 
-   - Foreground Process
-   - Background Process  
-      - Foreground process: mọi process mà bạn bắt đầu chạy là foreground process. Nó nhận input từ bàn phím và gửi output ra màn hình.  
-         - Trong khi một chương trình đang chạy trong foreground và cần một khoảng thời gian dài, vì vậy không thể chạy bất kỳ lệnh khác bởi vì dòng nhắc không có sẵn tới khi chương trình đang chạy kết thúc process và thoát ra.  
-      - Background process chạy mà không kết nối đến bàn phím. Nếu backgroud yêu cầu bất cứ đầu vào từ bàn phím, chương trình sẽ đợi.   
+   - Foreground Process:
+      - Foreground process là chuyển jobs từ background sang foreground.
+   - Background Process:
+      - Background process là tiếp tục jobs khi bị tạm dừng.
          - Để bắt đầu một background process thêm dấu "`&`" tại cuối lệnh.   
 
-- Background process và foreground process thường được thao tác thông qua Job ID.   
-- Lệnh `jobs`: Bạn có thể trình bày danh sách của jobs ở Bash là đang theo dõi cho phiên riêng với jobs  
+- Background process và foreground process thường được thao tác thông qua Jobs ID.   
+- Lệnh `jobs`: Trình bày các process đang chạy.
 - Lệnh `ps j`: Trình bày thông tin liên quan đến jobs.  
+- Lệnh `ctrl + Z`: để tạm dừng process.  
+
+![image](image/1.9.png)   
+- Lệnh `ctrl + C`: để kết thúc process.  
+
+## 3.Killing process   
+- Lệnh `kill`: là lệnh tắt process đang chạy   
+- Cấu trúc:   
+   - kill [option] [pid]   
+       - Options:   
+          - `1 HUP` (hangup): Khởi động lại process   
+          - `2 INT`: Kết thúc process (Crtl + C)     
+          - `3 QUIT`: Lưu và thoát khỏi process (Ctrl+ \ )    
+          - `9 KILL`: Dừng process ngay lập tức    
+          - `15 TERM`: Yêu cầu process dừng hoạt động. 
+          - `18 CONTINUE`: Tiếp tục process.   
+          - `19 STOP`: Dừng process tạm thời. (Ctrl + Z)   
+
+- Lệnh `kill -l`: hiển thị danh sách tên và số của tất cả tín hiệu có sẵn.   
+![image](image/1.10.png)    
+- Lệnh `pkill`: chỉ cần biết `pid` để kill process, thay vì phải biết số jobs.     
+- Lệnh `w`: hiện thị danh sách người dùng đăng nhập và process hiện tại đang chạy.   
+
+
 
 
 ## 5.Tham khảo   
