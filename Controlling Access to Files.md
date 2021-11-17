@@ -4,6 +4,7 @@
  
 ---- 
 
+<a name ='1'></a> 
 ### 1.Quyền truy xuất trong Linux  
 - Để xem quyền truy cập trong Linux ta dùng câu lệnh ls - l   
 
@@ -146,6 +147,6 @@
 Thì mặc định folder_name sẽ được phân quyền là 752     
 - Đồng thời lúc đó thì nó sẽ tự động phân quyền cho file trong folder là 640   
 
-
+<a name ='2'></a>
 ## 2.Tham khảo
 [1]https://news.cloud365.vn/linux_basic-sticky-bit-suid-sgid/   

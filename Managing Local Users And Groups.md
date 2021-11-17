@@ -3,7 +3,7 @@
 [2. Tạo user](#2)  
 [3. Tạo group](#3)  
 
-## Tham khảo.   
+## [Tham khảo](#4)   
 
 ----
 
@@ -11,6 +11,7 @@
 - su: Đây là môi trường có thể hoạt động như người dùng (mở một subshell mới)   
 - sudo: Cho phép cài đặt các lệnh với quyền người dùng ngay trên subshell đó mà không cần phải chuyển sang chế độ root.       
 
+<a name ='1'></a>
 ### 1.Quản lý tài khoản user
 
 - Mỗi user thường có đặc điểm như sau:  
@@ -30,7 +31,7 @@
 
    ![image](image/1.6.png)  
 
-
+<a name ='2'></a>
 ### 2. Tạo User   
 ----   
 *Khi làm việc với các công cụ như useradd, một số giá trị mặc định được giả sử. Những giá trị mặc định được đặt trong hai tệp cấu hình: /etc/login.defs và /etc/default/người dùng*    
@@ -78,6 +79,7 @@
     - Ví dụ: `chage -E 2021-12-10 -m 5 -M 90 -I 10 -W 5 pdp1805`   
 *Lệnh trên sẽ thiết lập mật khẩu cho user pdp1805 hết hạn vào ngày 2021-12-10. Số ngày tối thiểu phải thay đổi mật khẩu là 5, số ngày tối đa là 90. Tài khoản sẽ bị khóa 10 ngày nếu hết hạn, sẽ có tin nhắn cảnh báo trước 5 ngày trước khi hết hạn.*    
 
+<a name ='3'></a>
 ### 3. Tạo group:   
 
 - Nhóm là tập hợp của nhiều user. Mỗi nhóm có tên duy nhất, và có một mã định danh duy nhất (gid). Khi tạo một user (không dùng option -g) thì mặc định một group được tạo ra.  
@@ -107,7 +109,7 @@ Cấu trúc: group [Options] Group
 
 -----
 
-
+<a name ='4'></a>
 ## Tham khảo   
 
 [1]https://www.hostinger.vn/huong-dan/cach-su-dung-sudo-va-file-sudoers   

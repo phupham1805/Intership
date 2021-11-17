@@ -63,7 +63,7 @@ VD: lệnh `ps`
    - `TIME`: Thời gian CPU bị khởi động bởi process.
    - `CMD`: Câu lệnh để thực hiện process đó.   
 
-
+<a name ='2'></a> 
 ## 2. Controlling jobs    
 - Có 2 loại process: 
    - Foreground Process:
@@ -80,6 +80,7 @@ VD: lệnh `ps`
 ![image](image/1.9.png)   
 - Lệnh `ctrl + C`: để kết thúc process.  
 
+<a name ='3'></a>  
 ## 3.Killing process   
 - Lệnh `kill`: là lệnh tắt process đang chạy   
 - Cấu trúc:   
@@ -127,6 +128,7 @@ VD: lệnh `ps`
      - `1873.59`: thời gian hoạt động của hệ thống.   
      - `7070.33`: thời gian nhàn rỗi của hệ thống.   
 
+<a name ='4'></a>   
 ## 4. Monitorning process activity   
 - Load average: là mức tải hệ thống nhận được trong một khoảng thời gian.   
      - Load average: đo lường có bao nhiêu process thì hiện tại đang chờ để cho một yêu cầu để hoàn thành trước khi làm điều khác. 
@@ -177,8 +179,8 @@ Các phím và tổ hợp phím trong `top`
 - `1`: hiện thị nhiều CPU    
 - `U or shift + U`: Bộ lọc cho nhiều tên người dùng (effective, real)   
 
-
-## 5.Tham khảo    
+<a name ='5'></a>
+  ## 5.Tham khảo    
 [1]https://news.cloud365.vn/ps-command-tim-hieu-va-huong-dan-su-dung/   
 [2]https://bizflycloud.vn/tin-tuc/tim-hieu-ve-process-trong-linux-20210430234059408.htm
 [3]https://blogd.net/linux/cach-kiem-tra-uptime-cua-he-thong-tren-linux/   

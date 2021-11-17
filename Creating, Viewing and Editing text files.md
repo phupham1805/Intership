@@ -1,12 +1,12 @@
   # Mục lục   
-  1. Tạo tệp văn bản
-  2. Thay đổi môi trường shell
+  [1.Tạo tệp văn bản](#1)   
+  [2.Thay đổi môi trường shell](#2)
 
-  ## Tham khảo   
+  ## [Tham khảo](#3)   
   
   ----
-
-  1. Tạo tệp văn bản  
+<a name ='1'></a>
+  ## 1.Tạo tệp văn bản  
 
   ![image](image/23.png)  
 
@@ -28,6 +28,7 @@
 
   ![image](image/25.png)
   
+  <a name ='2'></a>
   2. Thay đổi môi trường Shell  
   - echo $count: Hiện thị giá trị của một biến cụ thể  
   - count=70
@@ -41,7 +42,7 @@
 
   ![image](image/22.png)  
 
-
+<a name ='3'></a>
   ## Tham khảo  
   [1]https://www.wikihow.vn/T%E1%BA%A1o-v%C3%A0-ch%E1%BB%89nh-s%E1%BB%ADa-t%E1%BB%87p-v%C4%83n-b%E1%BA%A3n-b%E1%BA%B1ng-Terminal-tr%C3%AAn-Linux 
 

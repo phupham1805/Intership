@@ -1,8 +1,8 @@
 # Mục lục  
-1. **Hệ thống file trên Linux**     
-2. **Các lệnh thao tách file trên Linux**  
+[1. **Hệ thống file trên Linux**](#1)    
+[2. **Các lệnh thao tách file trên Linux**](#2)  
 
-### Tham khảo  
+### [Tham khảo](#3)  
 
 ----
 
@@ -10,7 +10,8 @@
 
 - *Thao tác với file, folder trên Linux thường dùng lệnh. Dưới đây là các lệnh giúp tạo, xóa, sửa, copy, di chuyển file*  
 
-1. `Hệ thống file trên Linux`
+<a name ='1'></a>
+### 1.`Hệ thống file trên Linux`
 
 |Lệnh|Mô tả|  
 |----|----|  
@@ -21,7 +22,8 @@
 |mv|di chuyển, đổi tên file, folder|
 |rm|xóa file|  
 
-2. `Các lệnh thao tác file trên Linux`  
+<a name ='2'></a> 
+### 2. `Các lệnh thao tác file trên Linux`  
 
 - pwd: (print working directory) trình bày đầy đủ đường dẫn của thư mục hiện tại đang làm việc.
 - ls: hiện danh sách file   
@@ -57,7 +59,8 @@
 - ping: để kiểm tra trạng thái kết nối của bạn.   
 - echo: lệnh này để chuyển dữ liệu vào một file.  
 
-
+<a name ='3'></a>
+## Tham khảo
 [1]https://blogd.net/linux/lam-viec-voi-tap-tin-va-thu-muc-tren-linux/   
 [2]https://www.hostinger.vn/huong-dan/cac-lenh-co-ban-trong-linux  
 
