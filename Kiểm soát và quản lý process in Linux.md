@@ -177,9 +177,9 @@ Các phím và tổ hợp phím trong `top`
 - `B`: Các process đang chạy được hiện thị bằng văn bản bôi đậm.  
 - `1`: hiện thị nhiều CPU    
 - `U or shift + U`: Bộ lọc cho nhiều tên người dùng (effective, real)   
-
+S
 <a name ='5'></a>
   ## Tham khảo    
 [1]https://news.cloud365.vn/ps-command-tim-hieu-va-huong-dan-su-dung/   
 [2]https://bizflycloud.vn/tin-tuc/tim-hieu-ve-process-trong-linux-20210430234059408.htm
-[3]https://blogd.net/linux/cach-kiem-tra-uptime-cua-he-thong-tren-linux/   
+[3]https://blogd.net/linux/cach-kiem-tra-uptime-cua-he-thong-tren-linux/   S
