@@ -20,12 +20,12 @@
    - A current scheduling context. 
 
 #### Mô tả trạng thái process   
-- Mỗi CPU (or CPU core) chỉ đang làm việc trong một quy trình tại một thời điểm duy nhất.   
+- Mỗi CPU (or CPU core) chỉ đang làm việc trong một process tại một thời điểm duy nhất.   
 
 |Name|Flag|Mô tả|   
 |----|----|----|   
-|Running|R|Process thì đang thực thi trong một CPU hoặc đang chờ để chạy|  
-|Sleeping|S |Process thì đang chờ một vài tình trạng|   
+|Running|R|Process thì đang chạy hoặc sẵn sàng để chạy|  
+|Sleeping|S |Process thì đang đợi một event để tiếp tục chạy|   
 |Daemon|D|Process đang đợi I/O|  
 |Kill|K|Dừng process để cho phép một task đang chờ yêu cầu đến tín hiệu|    
 |Stopped|T|Process đang trong quá trình dừng chạy|   
@@ -42,8 +42,7 @@
    - `PID`: định danh process duy nhất   
    - CPU và thời gian thực đã được sử dụng   
    - Tất cả Process chiếm bao nhiêu bộ nhớ.    
-   - Trạng thái process hiện tại  
-   - Cục bộ của process `stdout`, được biết như `controlling terminal`.  
+   - Trạng thái process hiện tại   
     Cấu trúc:  
       - `ps [option]`:    
       - Options:
@@ -73,7 +72,7 @@ VD: lệnh `ps`
          - Để bắt đầu một background process thêm dấu "`&`" tại cuối lệnh.   
 
 - Background process và foreground process thường được thao tác thông qua Jobs ID.   
-- Lệnh `jobs`: Trình bày các process đang chạy.
+- Lệnh `jobs`: liệt kê danh sách các nhiệm vụ đang chạy.
 - Lệnh `ps j`: Trình bày thông tin liên quan đến jobs.  
 - Lệnh `ctrl + Z`: để tạm dừng process.  
 
