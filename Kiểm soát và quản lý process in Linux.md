@@ -103,9 +103,81 @@ VD: lệnh `ps`
     ![image](image/1.12.png)
 - Lệnh `pidof`: tìm ID của process đang chạy.    
 ![image](image/1.11.png) 
-- Lệnh `w`: hiện thị danh sách người dùng đăng nhập và process hiện tại đang chạy.   
+- Lệnh `w`: hiện thị danh sách người dùng đăng nhập và process hiện tại đang chạy.    
+
+![image](image/2.5.png)    
+```
+    - User: Tên người dùng đăng nhập   
+    - Up: Lượng thời của hệ thống đang chạy     
+    - From: máy chủ từ xa    
+    - Login@: thời gian đăng nhập    
+    - IDLE: Thời gian nhàn rỗi   
+    - JCPU: Thời gian sử dụng bởi tất cả các process được đính kèm với tty (thông tin terminal mà người dùng đăng nhập)       
+    - PCPU: Thời gian sử dụng bởi process hiện tại, được đặt tên trong What   
+```
+- Cấu trúc:   
+    - `w [options] [user]`   
+    - Options:  
+       - `-u`: bỏ qua tên người dùng.  
+       - `-s`: bỏ qua thời gian đăng nhập, thời gian JCPU, PCPU     
+       - `-i`: hiện thị ip thay vì tên máy chủ     
+- /proc/uptime: để kiểm tra uptime trên Linux    
+![image](image/2.6.png)   
+     - `1873.59`: thời gian hoạt động của hệ thống.   
+     - `7070.33`: thời gian nhàn rỗi của hệ thống.   
+
+## 4. Monitorning process activity   
+- Load average: là mức tải hệ thống nhận được trong một khoảng thời gian.   
+     - Load average: đo lường có bao nhiêu process thì hiện tại đang chờ để cho một yêu cầu để hoàn thành trước khi làm điều khác. 
+- Linux sẽ báo cáo có bao nhiêu process sẵn sàng để chạy trong CPU, có bao nhiêu process đang chờ trong đĩa hoặc network I/O để hoàn thành.   
+- Quá trình không thể chạy trong CPU trừ khi yêu cầu được hoàn thành.     
+- Lệnh `uptime`: dùng để tìm hiểu thời gian hệ thống hoạt động.   
+![image](image/2.4.png)   
+
+- `20:52:36`: Thời gian hiện tại (current time)    
+- `up 0 min`: lượng thời gian của hệ thống đang chạy.       
+- `2 users`: số lượng người dùng hiện tại   
+- `load average`: thời gian tải trung bình 1, 5 và 15 phút cuối.
+- Cấu trúc:   
+     - `Uptime [Options]`    
+         - `-p`: kiểm tra thời gian hoạt động của máy chủ Linux    
+         - `-s`: thời gian bắt đầu máy chủ Linux    
+
+- Lệnh `lscpu`: hiện thị thông tin về kiến trúc CPU.   
+- Lệnh `top`: hiện thị danh sách các process đang chạy.  
+- Cấu trúc:   
+     - `top [options]`:   
+     - Options:    
+        - `-h`: hiện thị phiên bản hiện tại   
+        - `-d`: chỉ định thời gian trễ khi refesh màn hình.   
+        - `-o`: sắp xếp theo trường được đặt tên.   
+        - `p`: chỉ định process với ID được chỉ định.   
+        - `-u`: chỉ định process với người dùng được chỉ định.    
+        - `-i`: không hiển thị các idle task (xem các tiến trình đang hoạt động).      
+
+![image](image/2.7.png)    
+- `us`: mức sử dụng CPU bởi người dùng theo tỷ lệ %   
+- `sy`: mức sử dụng CPU bởi hệ thống   
+- `ni`: mức sử dụng CPU bởi các process có mức độ ưu tiên   
+- `id`: mức sử dụng CPU bởi idle process   
+- `wa`: mức sử dụng CPU bởi io wait (CPU không hoạt động chờ I/O disk hoàn  thành)     
+- `hi`: mức sử dụng CPU bởi hard idle (ngắt phần cứng)    
+- `si`: mức sử dụng CPU bởi soft idle (ngắt phần mềm)   
+- `st`: mức sử dụng CPU bởi steal time (thời gian CPU ảo "chờ" CPU thực)     
+- `Swap` là RAM ảo, được sử dụng khi bộ nhớ vật lý (RAM) bị đầy.      
+
+Các phím và tổ hợp phím trong `top`   
+- `F`: hiện thị danh sách các trường   
+- `T`: chuyển đổi các luồng, tải và bộ nhớ.   
+- `R`: thay đổi mức độ ưu tiên   
+- `K`: kill một process    
+- `shift + W`: Viết (lưu) trình bày cấu hình hiện tại để sử dụng tiếp theo khi khởi động top.   
+- `B`: Các process đang chạy được hiện thị bằng văn bản bôi đậm.  
+- `1`: hiện thị nhiều CPU    
+- `U or shift + U`: Bộ lọc cho nhiều tên người dùng (effective, real)   
 
 
-## 5.Tham khảo   
+## 5.Tham khảo    
 [1]https://news.cloud365.vn/ps-command-tim-hieu-va-huong-dan-su-dung/   
 [2]https://bizflycloud.vn/tin-tuc/tim-hieu-ve-process-trong-linux-20210430234059408.htm
+[3]https://blogd.net/linux/cach-kiem-tra-uptime-cua-he-thong-tren-linux/   

@@ -91,7 +91,7 @@ Cấu trúc: group [Options] Group
    - Group: Tên nhóm định nghĩa   
    - Ví dụ: Tạo nhóm users   
       *Tạo nhóm accouting với GID = 100  
-      `groupadd -g 200 accouting`   
+      `groupadd -g 100 accouting`   
 - Lệnh groupmod:   
    - Cấu trúc lệnh: groupmod [Options] group   
    - -g GID Sửa mã nhóm thành GID  
