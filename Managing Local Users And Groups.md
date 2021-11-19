@@ -95,9 +95,9 @@ Cấu trúc: group [Options] Group
       *Tạo nhóm accouting với GID = 100  
       `groupadd -g 100 accouting`   
 - Lệnh groupmod:   
-   - Cấu trúc lệnh: groupmod [Options] group   
+   - Cấu trúc lệnh: groupmod [Options] [group_name]   
    - -g GID Sửa mã nhóm thành GID  
-   - -n group_name: Sửa tên nhóm thành group_nam.  
+   - -n group_name: Sửa tên nhóm thành group_name  
    - Group: Tên nhóm cần chỉnh sửa   
    - Ví dụ: *Sửa gid của nhóm user thành 101*  
       `groupadd -g 101 users`   
