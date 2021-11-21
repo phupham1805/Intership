@@ -54,7 +54,8 @@
          - `-o`: xem thông tin cụ thể của các tiến trình đang chạy.  
 
 
-VD: lệnh `ps`
+VD: lệnh `ps`  
+
      ![image](image/1.8.png)  
 
    - `PID`: Id của tiến trình   
