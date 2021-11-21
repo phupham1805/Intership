@@ -46,9 +46,9 @@
     Cấu trúc:  
       - `ps [option]`:    
       - Options:
-         - `aux`: trình bày tất cả process   
-         - `lax`: một danh sách dài cung cấp nhiều kỹ thuật chi tiết.   
-         - `ef`: trình bày tất cả thông tin process.    
+         - `-aux`: trình bày tất cả process   
+         - `-lax`: một danh sách dài cung cấp nhiều kỹ thuật chi tiết.   
+         - `-ef`: trình bày tất cả thông tin process.    
          - `-fG` [tên user]: xem thông tin tiến trình thuộc nhóm người dùng nhất định.      
          - `-U root -u root u`: hiện thị thông tin tiến trình chạy dưới quyền root.   
          - `-o`: xem thông tin cụ thể của các tiến trình đang chạy.  
@@ -177,7 +177,7 @@ Các phím và tổ hợp phím trong `top`
 - `B`: Các process đang chạy được hiện thị bằng văn bản bôi đậm.  
 - `1`: hiện thị nhiều CPU    
 - `U or shift + U`: Bộ lọc cho nhiều tên người dùng (effective, real)   
-S
+
 <a name ='5'></a>
   ## Tham khảo    
 [1]https://news.cloud365.vn/ps-command-tim-hieu-va-huong-dan-su-dung/   
