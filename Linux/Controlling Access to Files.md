@@ -8,7 +8,7 @@
 ### 1.Quyền truy xuất trong Linux  
 - Để xem quyền truy cập trong Linux ta dùng câu lệnh ls - l   
 
-![image](image/1.4.png)
+  ![image](image/1.4.png)  
 
 - Danh sách quyền truy cập được trình bày ở cột đầu tiên trong kết quả. Các loại quyền truy cập gồm:   
     - `Read` (r): Cho phép đọc nội dung tập tin và xem nội dung thư mục bằng lệnh ls  
