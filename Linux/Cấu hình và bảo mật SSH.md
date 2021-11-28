@@ -42,7 +42,7 @@ Mục đích:
         `ssh your-username@host`     
     - VD:   
         `ssh boo@remotehost`       
-
+  
 *Note: host ở đây có thể là ip hoặc domain của máy mà bạn truy cập tới.*    
 Sau đó nhập mật khẩu tương ứng với user của bạn tại host đó.     
 
@@ -66,7 +66,8 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
         - `-f`: là key name và nơi sẽ lưu trữ key.   
         - `-t`: là thuật toán mã hóa để sinh khóa.     
         - `-b`: kích thước khóa.
-- VD: `ssh-keygen -f ~/key-name -t ecdsa -b 521`     
+- VD: `ssh-keygen -f ~/keypass -t ecdsa -b 521`      
+![image](image/3.3.png)  
 
     - Private Key thì được lưu ở file:   
          - `~/.ssh/id_rsa`      
@@ -87,7 +88,7 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
 
 - Lệnh `ssh-agent`: temporarily cache your `private key` passphrase in memory.    
 - Lệnh `eval $(ssh-agent)`: bắt đầu ssh-agent và chạy những lệnh tự động, thiết lập biến môi trường cho phiên shell. Nó sẽ hiển thị PID của process ssh-agent. 
-
+![image](image/3.4.png)   
 - Thêm private-key vào SSH-agent   
     - Trên máy local:     
        ` ssh-add /PATH/TO/YOUR/KEY`    
@@ -100,8 +101,8 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
 <a name='5'></a>   
 ## 5. Tùy chỉnh cấu hình dịch vụ OpenSSH     
 - Chỉ sử dụng giao thức SSH phiên bản 2.  
-    - `protocol 2`   
-- Khng sử dụng mật khẩu rỗng.   
+    - `protocol 2`     
+- Không sử dụng mật khẩu rỗng.   
     - `PermitEmptyPasswords no`    
 - Thay đổi cổng (Port) SSH.   
     - ` Port 2021`    
