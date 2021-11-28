@@ -4,9 +4,8 @@
 [3. Truy cập dòng lệnh từ xa với SSH](#3)   
 [4. Cấu hình SSH xác thực dựa trên khóa](#5)   
 [5. Tùy chỉnh dịch vụ cấu hình OpenSSH](#5)  
-[6. Mô tả lưu trữ nhật ký hệ thống](#6)   
-
-## [Tham khảo](#7)     
+   
+## [Tham khảo](#6)     
 
 ---  
 ```
@@ -129,7 +128,7 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
    - Nếu bạn không sử dụng chế độ này (option "no") thì dịch vụ SSH sẽ không kiểm tra các cấu hình quyền khi bạn đăng nhập vào VPS/Cloud Server. Vì vậy bạn cần chú ý cấu hình đúng các phân quyền (permission) cho thư mục/key dùng để đăng nhập SSH.    
        - `StrictModes yes`   
  
-<a name='7'></a>  
+<a name='6'></a>  
 ## Tham khảo   
 [1]https://cloudviet.com.vn/13-cach-cau-hinh-bao-mat-ssh-server-tren-linux/   
 [2]https://viblo.asia/p/ssh-so-luoc-mot-so-cau-lenh-co-ban-phan-1-maGK7JLD5j2   
