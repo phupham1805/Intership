@@ -40,7 +40,7 @@ Mục đích:
         - `scp [OPTION] [user_src@src_host:]src_file [user@]desk_host:]des_file `   
 
 Trong đó:  
-   - `[user_src@src_host:]src_file` là file, thư mục nguồn, ví dụ abcuser@172.16.138.124:/home/file1.txt là file /home/file1.txt tại máy abcuser@172.16.138.124, như dấu `:`, nếu là tại máy local thì không cần chỉ ra user, host tức bỏ đoạn abcuser@172.16.138.124:    
+   - `[user_src@src_host:]src_file` là file, thư mục nguồn, ví dụ abcuser@172.16.138.124:/home/file1.txt là file /home/file1.txt tại máy abcuser@172.16.138.124, như dấu `:`, nếu là tại máy local thì không cần chỉ ra user, host tức bỏ đoạn `abcuser@172.16.138.124:`    
    - `[user@]desk_host:]des_file` đường dẫn file, thư mục đích muốn copy - ý nghĩa tương tự như trên.    
    - `[OPTIONS]` các thiết lập cho thêm vào nếu muốn, như cho thêm tham số -r để đệ quy copy cả thư mục, các file, thư mục con theo đường dẫn.       
 
