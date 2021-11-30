@@ -29,7 +29,9 @@ Mục đích:
 - `/etc/ssh/sshd_config`: file cấu hình dịch vụ OpenSSH server.   
 - `/etc/ssh/ssh_config`: file cấu hình OpenSSH client.   
 - `~/.ssh/`: thư mục chứa nội dung cấu hình ssh của user client trên Linux.   
-- `~/.ssh/authorized_keys`: thư mục chứa thông tin các public key được user sử dụng để login vào hệ thống Linux.    
+- `~/.ssh/authorized_keys`: thư mục chứa thông tin các public key được user sử dụng để login vào hệ thống Linux.      
+     - root    `/root/.ssh/authorized_keys`    
+     - user(abc)    `/home/abc/.ssh/authorized_keys`       
 
 - `/etc/nologin`: nếu thư mục này tồn tại, thì dịch vụ SSH server trên Linux sẽ từ chối đăng nhập từ các user khác trên hệ thống ngoại trừ user root. File này cần trong trường hợp khẩn cấp cần cách lý sớm hệ thống.    
 ![image](image/3.1.png)  
@@ -69,10 +71,11 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
 - VD: `ssh-keygen -f ~/keypass -t ecdsa -b 521`      
 ![image](image/3.3.png)  
 
-    - Private Key thì được lưu ở file:   
-         - `~/.ssh/id_rsa`      
-    - Public Key thì được lưu ở file:  
-         - `~/.ssh/id_rsa.pub`        
+    - Private Key thì được lưu ở file  `~/.ssh/id_rsa`, nó được dùng để SSH client (máy local) kết nối đến Server. Mở file này đoạn mã Private Key có dạng:    
+    ![image](image/3.5.png)    
+
+    - Public Key thì được lưu ở file `~/.ssh/id_rsa.pub`, nó được lưu (dùng) ở máy Server để xác thực khi có Private key gửi đến. Mở file này đoạn mã Public Key có dạng:     
+    ![image](image/3.6.png)   
 
 ```  
 - Trong lúc generate, hệ thống sẽ yêu cầu bạn cung cấp passphrase. Mục đích sinh ra passphrase là để encrypt private key. Vậy khi một kẻ tấn công biết được private key của bạn cũng chưa chắc có thể sử dụng, vì nó đã bị mã hóa.   
@@ -84,7 +87,7 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
     - `ssh-copy-id [Options]` 
     - Option: 
         - `-i`: để chỉ định đường dẫn đến file private key.
-- VD: ssh-copy-id -i .ssh/key-with-pass.pub user@remotehost
+- VD: ssh-copy-id -i .ssh/keypass.pub user@ip(domain)
 
 - Lệnh `ssh-agent`: temporarily cache your `private key` passphrase in memory.    
 - Lệnh `eval $(ssh-agent)`: bắt đầu ssh-agent và chạy những lệnh tự động, thiết lập biến môi trường cho phiên shell. Nó sẽ hiển thị PID của process ssh-agent. 
@@ -97,6 +100,12 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
 - Phần public của khóa private được lưu vào ssh-agent phải được đặt trong ~/.ssh/authorizedkeys (authorized_keys) là một file) 
     
 ```       
+*Note: Lỗi hay gặp không kết nối được SSH Key: thường là lưu file public key ở Server ở các thư mục không được chmod phù hợp. Nếu user có tên abc, thì chmod phù hợp là:*      
+``` 
+/home/abc                        700   
+/home/abc/.ssh                   700
+/home/abc/.ssh/authorized_keys   600  
+```
 
 <a name='5'></a>   
 ## 5. Tùy chỉnh cấu hình dịch vụ OpenSSH     
