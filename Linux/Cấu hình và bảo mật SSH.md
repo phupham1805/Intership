@@ -90,8 +90,9 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
 - VD: ssh-copy-id -i .ssh/keypass.pub user@ip(domain)
 
 - Lệnh `ssh-agent`: temporarily cache your `private key` passphrase in memory.    
-- Lệnh `eval $(ssh-agent)`: bắt đầu ssh-agent và chạy những lệnh tự động, thiết lập biến môi trường cho phiên shell. Nó sẽ hiển thị PID của process ssh-agent. 
-![image](image/3.4.png)   
+- Lệnh `eval $(ssh-agent)`: bắt đầu ssh-agent và chạy những lệnh tự động, thiết lập biến môi trường cho phiên shell. Nó sẽ hiển thị PID của process ssh-agent.    
+
+   ![image](image/3.4.png)   
 - Thêm private-key vào SSH-agent   
     - Trên máy local:     
        ` ssh-add /PATH/TO/YOUR/KEY`    
