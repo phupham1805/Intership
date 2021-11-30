@@ -34,7 +34,19 @@ Mục đích:
      - user(abc)    `/home/abc/.ssh/authorized_keys`       
 
 - `/etc/nologin`: nếu thư mục này tồn tại, thì dịch vụ SSH server trên Linux sẽ từ chối đăng nhập từ các user khác trên hệ thống ngoại trừ user root. File này cần trong trường hợp khẩn cấp cần cách lý sớm hệ thống.    
-![image](image/3.1.png)  
+![image](image/3.1.png)     
+- Lệnh `SCP (secure copy-sao chép an toàn)` là lệnh do OpenSSH Client cung cấp, nó cho phép truyền tải file qua lại giữa máy local và remote (server), nó sử dụng giao thức SSH để truyền file.    
+    - Cấu trúc:  
+        - `scp [OPTION] [user_src@src_host:]src_file [user@]desk_host:]des_file `   
+
+Trong đó:  
+   - `[user_src@src_host:]src_file` là file, thư mục nguồn, ví dụ abcuser@172.16.138.124:/home/file1.txt là file /home/file1.txt tại máy abcuser@172.16.138.124, như dấu `:`, nếu là tại máy local thì không cần chỉ ra user, host tức bỏ đoạn abcuser@172.16.138.124:    
+   - `[user@]desk_host:]des_file` đường dẫn file, thư mục đích muốn copy - ý nghĩa tương tự như trên.    
+   - `[OPTIONS]` các thiết lập cho thêm vào nếu muốn, như cho thêm tham số -r để đệ quy copy cả thư mục, các file, thư mục con theo đường dẫn.       
+
+VD: `scp root@172.16.138.102:/home/data/1.txt /mycode/1.txt `     
+
+- Nghĩa là một file nằm trên server 172.16.138.102  ở đường dẫn /home/dat/1.txt có tài khoản SSH với user là root về lưu ở máy local với đường dẫn /mycode/1.txt.
 
 <a name='3'></a>  
 ### 3. Truy cập dòng lệnh từ xa với SSH     
@@ -143,6 +155,7 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
 ## Tham khảo   
 [1]https://cloudviet.com.vn/13-cach-cau-hinh-bao-mat-ssh-server-tren-linux/   
 [2]https://viblo.asia/p/ssh-so-luoc-mot-so-cau-lenh-co-ban-phan-1-maGK7JLD5j2   
+[3]https://xuanthulab.net/tao-ssh-key-va-xac-thuc-ket-noi-ssh-bang-public-private-key.html
 
     
 
