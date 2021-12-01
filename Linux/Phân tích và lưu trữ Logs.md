@@ -1,27 +1,25 @@
 # Mục lục    
-[1. Mô tả kiến trúc Log hệ thống](#1)    
-[2. Reviewing Syslog Files](#2)    
-[3. Reviewing System Journal Entries](#3)    
-[4. Preserving The System Journal](#4)     
-[5. Duy trì thời gian chính xác](#5)     
+[1. Log để làm gì?](#1)    
+[2. Syslog là gì?](#2)    
+[3. Rsyslog là gì?](#3)    
+[4. Logroation](#4)     
+[5. Journal](#5)     
 
 ## [Tham Khảo](#6)   
 
 ----  
 
 <a name='1'></a>    
-### 1. Mô tả kiến trúc Log hệ thống   
-- Hầu hết các hệ thống ghi lại logs of events trong tệp văn bản, có thể được tìm thấy trong thư mục `/var/log` và thư mục con.     
+### 1. Log là gì, để làm gì? 
+VD: Khi quản lý một server chứa nhiều dữ liệu hoặc đã cài đặt rất nhiều ứng dụng, tính năng. Server tự nhiên mất dữ liệu, muốn điều tra xử lý và tìm nguyên nhân khắc phục hậu quả xảy ra thì `log` sẽ giúp việc này.   
+  -  1.1 Log là gì?          
+     - `log` là dữ liệu sinh ra khi hệ thống hoạt động ghi lại liên tục các thông báo về hoạt động của cả hệ thống hoặc các dịch vụ được triển khai trên hệ thống và file tương ứng.   
+     - Các file log sẽ xuất log cho bạn biết tất cả các tiến trình diễn ra trong hệ thống.   
+     - Hệ điều hành Linux cung cấp một kho lưu trữ tập trung các file log trong thư mục `/var/log`   
 
-  ![image](image/3.7.png)  
-- Một `logging system` tiêu chuẩn dựa trên giao thức `syslog` thì đã được xây dựng trong Linux. Nhiều chương trình sử dụng hệ thống này để ghi lại events và sắp xếp chúng thành files log. Dịch vụ `systemd-journald` và `rsyslog` xử lý `syslog messages` trong Linux.     
+  ![image](image/3.9.png)  
 
-   ![image](image/3.8.png)    
-
- 
-  
-
-|Log File|Chức năng|   
+|Log File|Loại messages được lưu trữ|   
 |----|----|  
 |/var/log/messages|Most syslog messages are logged here. Ngoại trừ thông tin liên quan authentication và email processing, scheduled job execution and debug.|   
 |/var/log/secure|Files log lưu trữ syslog messages liên quan đến bảo mật và xác thực events.|   
@@ -30,7 +28,7 @@
 |/var/log/boot.log|Non-syslog console messages liên quan đến hệ thống khởi động.|     
 
 <a name='2'></a>    
-### 2. Reviewing syslog files       
+### 2. Syslog       
 - Logging events to the system   
    - Nhiều chương trình sử dụng giao thức syslog để log events đến hệ thống. Mỗi log messages thì được phân phối bởi 1 cơ sở (kiểu của messages) và độ ưu tiên (mức độ nghiệm trọng của messages).    
 
