@@ -1,4 +1,4 @@
-## Mục lục    
+# Mục lục    
 [1. Mô tả kiến trúc Log hệ thống](#1)    
 [2. Reviewing Syslog Files](#2)    
 [3. Reviewing System Journal Entries](#3)    
