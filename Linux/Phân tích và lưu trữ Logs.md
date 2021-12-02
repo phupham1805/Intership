@@ -27,7 +27,7 @@
 - Hệ điều hành Linux cung cấp một kho lưu trữ tập trung các file log trong thư mục `/var/log`     
 
 ![image](image/3.9.png)           
-- 1.2 File Log:   
+- 1.3 File Log:   
      **Ví dụ**  
    - Syslog: Log hệ thống thông thường chứa các thông tin mặc định của hệ thống, thường được lưu trong /var/log/syslog hoặc /var/log/messages.  
 
