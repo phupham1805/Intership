@@ -58,8 +58,79 @@
     - Syslog dùng `port 514`.   
     - Trong chuẩn syslog, mỗi thông báo đều được dán nhãn và được gán các mức độ nghiêm trọng khác nhau.      
 - 2.2 Mục đích của syslog ?    
-    - Syslog xác định mức độ nghiêm trọng (severity levels) cũng như mức độ cơ sở (facility levels) giúp người dùng hiểu rõ hơn về log được sinh ra ở máy.    
-    
+    - Syslog xác định mức độ nghiêm trọng (severity levels) cũng như mức độ cơ sở (facility levels) giúp người dùng hiểu rõ hơn về log được sinh ra ở máy.  
+
+**Cấp độ cơ sở Syslog (Syslog Facility levels)**:    
+- Dùng để xác định chương trình
+- Xác định Log được tạo ra từ đâu   
+- Xác định mục đích Log sinh ra    
+- Nếu một máy khác muốn sinh ra log thì sẽ là một tập hợp các cấp độ facility được bảo lưu từ 16-23 được gọi là "local use" facility levels.     
+
+|Facility|Nguồn tạo log|Ý nghĩa|   
+|----|----|----|    
+|0|kernel|Những log mà do kernel sinh ra|   
+|1|user|Log ghi lại cấp độ người dùng|   
+|2|mail|Log của hệ thống mail|    
+|3|daemon|Log của các tiến trình trên hệ thống|    
+|4|auth|Log từ quá trình đăng nhập hệ thống hoặc xác thực hệ thống|    
+|5|syslog|Log từ chương trình syslogd|   
+|6|lpr|Log từ quá trình in ấn|    
+|7|news|Thông tin từ hệ thống|    
+|8|uucp|Log UUCP sybsystem|    
+|9||Clock daemon|    
+|10|authpriv|Quá trình đăng nhập hoặc xác thực hệ thống|    
+|11|ftp|Log của FTP daemon|    
+|12||Log từ dịch vụ NTP của các subserver|    
+|13||Kiểm tra đăng nhập|   
+|14||Log cảnh báo hệ thống|   
+|15|cron|Log từ clock daemon|    
+|16-23|local 0-local 7|Log dự trữ cho sử dụng nội bộ|     
+
+**Cấp độ cảnh báo**    
+- Dựa vào mức cảnh báo để biết và khắc phục sự cố.   
+- Có 8 cấp độ từ 0-7, 0 là cấp độ khẩn cấp quan trọng nhất.    
+
+|Value|Severity|Keyword|    
+|----|----|----|  
+|0|Emergency|`emerg`-Thông báo tình trạng khẩn cấp|   
+|1|Alert|`alert`-Hệ thống cần can thiệp ngay|    
+|2|Critical|`crit`-Tình trạng nguy kịch|    
+|3|Error|`err`-Thông báo lỗi đối với hệ thống|    
+|4|Warning|`warning`-Mức cảnh báo đối với hệ thống|    
+|5|Notice|`notice`-Chú ý đối với hệ thống|   
+|6|Informational|`info`-Thông tin của hệ thống|   
+|7|Debug|`debug`-Quá trình kiểm tra hệ thống|     
+
+**Định dạng chung của một gói tin syslog**    
+- Định dạng của một thông báo syslog gồm 3 phần chính.   
+   `<PRI> HEADER MSG`      
+
+Trong đó:   
+  - `PRI` hay `Priority` thể hiện cơ sở sinh ra log hoặc mức độ nghiêm trọng, là một số gồm 8 bit:     
+       - 3 bit đầu thể hiện tính nghiêm trọng của thông báo.(severity levels)
+       - 5 bit còn lại đại diện cho cơ sở sinh ra thông báo. (facility levels)     
+
+- Giá trị PRI được tính như sau:  
+    - `Facility levels x 8 + Severity levels`      
+
+VD: Thông báo từ kernel (Facility=0) với mức độ nghiêm trọng (Severity=0) thì giá trị Priority = 0x8+0 =0     
+Trường hợp khác, với "local use 4" (Facility=20) mức độ nghiêm trọng (Severity=5) thì số Priority là 20 x 8 + 5 = 165      
+Ngược lại: 
+Nếu biết Priority = 191 thì xác định `Facility` và `Severity` là bao nhiêu ?  
+- Lấy 191:8=23.875 -> Facility =23 ("local 7") -> Severity =191-(23*8)=7 (debug).     
+
+`HEADER`    
+- Phần HEADER thì gồm các phần chính sau:   
+    - Time stamp -Thời gian mà thông báo được tạo ra. Thời gian này được lấy từ thời gian hệ thống    
+    *Note: thời gian của server và thời gian của client khác nhau thì thông báo ghi trên log được gửi lên server là thời gian của client*      
+    - Hostname hoặc IP      
+   
+`MSG`   
+- Phần Message hay MSG chứa một số thông tin về quá trình tạo ra thông điệp đó. Gồm 2 phần chính: 
+   - Tag field: tên chương trình tạo ra thông báo.   
+   - Content field: chứa các chi tiết của thông báo.      
+          
+
 
 
 
