@@ -36,7 +36,9 @@
    - Auth.log: Chứa thông tin xác thực trên hệ thống. Khi chúng ta tìm kiếm vấn đề liên quan đến cơ chế ủy quyền của người dùng thì file log này sẽ làm điều đó.   
       - Thông qua file log này giúp cho chúng ta xác định được:  
          - Các lần thử đăng nhập thất bại.   
-         - Điều tra các cuộc tấn công và các lỗ hổng liên quan đến cơ chế ủy quyền của người dùng.        
+         - Điều tra các cuộc tấn công và các lỗ hổng liên quan đến cơ chế ủy quyền của người dùng.      
+
+![image](image/4.7.png)       
 - Một số file log có trong thư mục /var/log    
     - /var/log/boot.log: log trong quá trình khởi động hệ thống.      
     ![image](image/4.3.png)   
@@ -129,10 +131,48 @@ Nếu biết Priority = 191 thì xác định `Facility` và `Severity` là bao 
 - Phần Message hay MSG chứa một số thông tin về quá trình tạo ra thông điệp đó. Gồm 2 phần chính: 
    - Tag field: tên chương trình tạo ra thông báo.   
    - Content field: chứa các chi tiết của thông báo.      
-          
 
+*Đối với file ghi log có thể dùng một số lệnh sau để giúp cho việc xem log một cách dễ dàng*     
+- Lệnh `more`: Dùng để xem toàn bộ nội dung của thư mục.   
+- Lệnh `tail`: In ra 10 dòng cuối cùng nội dung của file.   
+- Lệnh `head`: In ra 10 dòng đầu tiên của nội dung file.   
+- Lệnh `tail-f`: Dùng để xem ngay lập tức khi có log đến.     
 
+<a name='3'></a>    
+### 3. Rsyslog    
+3.1 Rsyslog là gì ?       
+- Rsyslog là một sự phát triển của syslog, cung cấp các khả năng như các mô-đun có thể cấu hình, được liên kết với nhiều mục tiêu khác nhau (ví dụ chuyển tiếp nhật ký Apache đến một máy chủ từ xa).      
+- Rsyslog sử dụng `port 10514` cho TCP, đảm bảo rằng không có gói tin nào bị mất trên đường đi.   
+- Có thể sử dụng giao thức TLS/SSL trên TCP để mã hóa các gói Syslog của bạn, đảm bảo rằng không có cuộc tấn công trung gian nào có thể được thực hiện để theo dõi log của bạn.     
 
+3.2 Rsyslog làm gì ?     
+- rsyslog có thể thu thập các bản ghi từ các thiết bị khác như một máy chủ.  
+3.3 Điều cần nhớ:   
+- Facility level: các tiến trình cần ghi log.   
+- Priority level: loại thông điệp cần thu thập dựa trên mức cảnh báo đưa ra.     
+- Destination: nơi cần gửi các bản ghi log đến.       
+
+3.4 Cấu hình  
+
+   **Cài đặt rsyslog**  
+![image](image/4.5.png)    
+
+   **Thư mục chứa rsyslog**   
+![image](image/4.6.png)     
+
+*Cấu hình syslog dựa trên mô hình sau:*   
+`[facility-level].[Priority-level][Destination]`     
+*Ví dụ:*   
+
+`mail.warn /var/log/mail.warn`    
+Giải thích: với các dữ liệu có Facility là mail và tất cả Priority từ Chế độ Warning trở lên sẽ được lưu log lại trong /var/log/mail.warn      
+`mail.=info /var/log/mail.info`   
+Giải thích: Dữ liệu có Facility là mail và có chế độ Priority là info sẽ được lưu lại.   
+`*.* @@172.16.69.23:10514`     
+Giải thích: Tất cả các log gồm mọi Facility và Priority sẽ được chuyển đến máy chủ có địa chỉ ip 172.16.69.23 bằng TCP qua port 10514    
+
+3.5 LAB    
+Ví dụ thực hiện ghi hết các log về quá trình đăng nhập hoặc xác thực hệ thống với tất cả Priority tại file mới /var/log/auth.log, ta sửa file /etc/rsyslog.conf thực hiện lệnh    
 
 <a name='6'></a> 
 ## Tham khảo   
