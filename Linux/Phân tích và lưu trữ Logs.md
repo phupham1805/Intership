@@ -29,14 +29,18 @@
 ![image](image/3.9.png)           
 - 1.3 File Log:   
      **Ví dụ**  
-   - Syslog: Log hệ thống thông thường chứa các thông tin mặc định của hệ thống, thường được lưu trong /var/log/syslog hoặc /var/log/messages.  
+   - Syslog: Log hệ thống thông thường chứa các thông tin mặc định của hệ thống, thường được lưu trong /var/log/syslog hoặc /var/log/messages.   
+
+*Note: Syslog (Ubuntu), Messages (CentOs): Log hệ thống thông thường chứa các thông tin mặc định của hệ thống.*      
 
 ![image](image/4.1.png)     
 
    - Auth.log: Chứa thông tin xác thực trên hệ thống. Khi chúng ta tìm kiếm vấn đề liên quan đến cơ chế ủy quyền của người dùng thì file log này sẽ làm điều đó.   
       - Thông qua file log này giúp cho chúng ta xác định được:  
          - Các lần thử đăng nhập thất bại.   
-         - Điều tra các cuộc tấn công và các lỗ hổng liên quan đến cơ chế ủy quyền của người dùng.      
+         - Điều tra các cuộc tấn công và các lỗ hổng liên quan đến cơ chế ủy quyền của người dùng.        
+
+*Note: Auth.log (Ubuntu), Secure (CentOs): đều chứa thông tin xác thực trên hệ thống*    
 
 ![image](image/4.7.png)       
 - Một số file log có trong thư mục /var/log    

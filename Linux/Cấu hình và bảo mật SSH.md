@@ -91,7 +91,7 @@ Sau đó nhập mật khẩu tương ứng với user của bạn tại host đ�
 
 ```  
 - Trong lúc generate, hệ thống sẽ yêu cầu bạn cung cấp passphrase. Mục đích sinh ra passphrase là để encrypt private key. Vậy khi một kẻ tấn công biết được private key của bạn cũng chưa chắc có thể sử dụng, vì nó đã bị mã hóa.   
-- Trong thực tế, hầu hết khi tạo khóa SSH người ta thường không sử dụng thêm passphrase. Vì khi gặp vấn đề liên quan tới automation, passphrase này đâu thể đánh bằng tay mà ta phải lưu trong một kho lưu trữ hoặc là trong một đoạn script nào đó. Kết quả là bạn quay về xác thực bằng mật khẩu (lol !), attacker vẫn có thể biết được passphrase 
+- Trong thực tế, hầu hết khi tạo khóa SSH người ta thường không sử dụng thêm passphrase. Vì khi gặp vấn đề liên quan tới automation, passphrase này đâu thể đánh bằng tay mà ta phải lưu trong một kho lưu trữ hoặc là trong một đoạn script nào đó. Kết quả là bạn quay về xác thực bằng mật khẩu (lol !), attacker vẫn có thể biết được passphrase   
 ```   
 - Lệnh `ssh-copy-id`: dùng để copy Public Key của keypair SSH đến hệ thống đích.    
 - Nếu bạn bỏ lỡ con đường đến file public key trong khi chạy `ssh-copy-id`, nó sử dụng mặc định file `/home/user/.ssh/id_rsa.pub`       
