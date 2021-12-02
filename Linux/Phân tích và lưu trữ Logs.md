@@ -50,19 +50,16 @@
     - /var/log/btmp: chứa thông tin đăng nhập không thành công.   
 
 <a name='2'></a>    
-### 2. Giao thức Syslog       
-       
+### 2. Giao thức Syslog      
 
-   |code|Priority|Severity|   
-   |----|----|----|   
-   |0|emerg|Hệ thống thì không thể sử dụng được|    
-   |1|alert|Hành động phải được thực hiện ngay lập tức|    
-   |2|crit|Tình trạng nguy hiểm|   
-   |3|err|Tình trạng lỗi không nguy hiểm|   
-   |4|warning|Tình trạng cảnh báo|   
-   |5|notice|Event bình thường nhưng quan trọng|   
-   |6|info|Thông tin event|    
-   |7|debug|Debugging-level messages|   
+- 2.1 Syslog là gì?   
+    - Syslog là một giao thức client/server là giao thức dùng để chuyển log và thông điệp đến máy nhận log. Máy nhận log thường được gọi là `syslogd, syslog daemon hoặc syslog server.`        
+    - Syslog có thể gửi qua UDP hoặc TCP.   
+    - Syslog dùng `port 514`.   
+    - Trong chuẩn syslog, mỗi thông báo đều được dán nhãn và được gán các mức độ nghiêm trọng khác nhau.      
+- 2.2 Mục đích của syslog ?    
+    - Syslog xác định mức độ nghiêm trọng (severity levels) cũng như mức độ cơ sở (facility levels) giúp người dùng hiểu rõ hơn về log được sinh ra ở máy.    
+    
 
 
 
