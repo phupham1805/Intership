@@ -74,7 +74,7 @@
 |1|user|Log ghi lại cấp độ người dùng|   
 |2|mail|Log của hệ thống mail|    
 |3|daemon|Log của các tiến trình trên hệ thống|    
-|4|auth|Log từ quá trình đăng nhập hệ thống hoặc xác thực hệ thống|    
+|4|auth|Log từ quá trình đăng nhập hoặc xác thực hệ thống|    
 |5|syslog|Log từ chương trình syslogd|   
 |6|lpr|Log từ quá trình in ấn|    
 |7|news|Thông tin từ hệ thống|    
