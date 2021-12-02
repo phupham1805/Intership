@@ -146,7 +146,8 @@ Nếu biết Priority = 191 thì xác định `Facility` và `Severity` là bao 
 - Có thể sử dụng giao thức TLS/SSL trên TCP để mã hóa các gói Syslog của bạn, đảm bảo rằng không có cuộc tấn công trung gian nào có thể được thực hiện để theo dõi log của bạn.     
 
 3.2 Rsyslog làm gì ?     
-- rsyslog có thể thu thập các bản ghi từ các thiết bị khác như một máy chủ.  
+- rsyslog có thể thu thập các bản ghi từ các thiết bị khác như một máy chủ.    
+
 3.3 Điều cần nhớ:   
 - Facility level: các tiến trình cần ghi log.   
 - Priority level: loại thông điệp cần thu thập dựa trên mức cảnh báo đưa ra.     
