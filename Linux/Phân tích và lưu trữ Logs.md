@@ -117,7 +117,7 @@ Trong đó:
        - 5 bit còn lại đại diện cho cơ sở sinh ra thông báo. (facility levels)     
 
 - Giá trị PRI được tính như sau:  
-    - `Facility levels x 8 + Severity levels`      
+    - `(Facility Value x 8) + Severity Value = PRI`      
 
 VD: Thông báo từ kernel (Facility=0) với mức độ nghiêm trọng (Severity=0) thì giá trị Priority = 0x8+0 =0     
 Trường hợp khác, với "local use 4" (Facility=20) mức độ nghiêm trọng (Severity=5) thì số Priority là 20 x 8 + 5 = 165      
