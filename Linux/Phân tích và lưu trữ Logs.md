@@ -1,8 +1,8 @@
 # Mục lục    
 [1. Log là gì, để làm gì?](#1)    
-[2. Syslog là gì?](#2)    
+[2. Giao thức Syslog là gì?](#2)    
 [3. Rsyslog là gì?](#3)      
-[4. Logroation](#4)     
+[4. Logrotate là gì?](#4)     
 [5. Journal](#5)     
 
 ## [Tham Khảo](#6)   
@@ -50,7 +50,7 @@
     - /var/log/btmp: chứa thông tin đăng nhập không thành công.   
 
 <a name='2'></a>    
-### 2. Syslog       
+### 2. Giao thức Syslog       
        
 
    |code|Priority|Severity|   
