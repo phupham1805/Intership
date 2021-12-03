@@ -216,7 +216,7 @@ Trong đó:
 |rotate [number]|Quy định số lượng log file cũ đã được giữ lại sau khi rotate.|  
 |Notifempty|Không rotate log nếu file log này trống.|    
 |compress|Logrotate sẽ nén tất cả các file log lại sau khi đã được rotate, mặc định bằng gzip|    
-|Delaycompress| công việc nén sẽ được delay trễ hơn bằng việc sẽ nén file log cũ đó vào lần chạy rotate kế tiếp|     
+|Delaycompress| Được sử dụng khi không muốn file log cũ nén ngay sau khi vừa được rotate|     
 |nocompress|không sử dụng tính năng nén đối với file log cũ|    
 |compresscmd| Khi sử dụng chương trình nén như bzip2, xz hoặc zip|       
 |create|Phân quyền cho file log mới sau khi rotate|    
@@ -236,10 +236,10 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
    - missingok: bỏ qua thông báo lỗi khi tệp thực tế không có sẵn.    
 
 - Chạy Logrotate thủ công   
-   - `logrotate -vf /etc/logrotate.d/`   
+   `logrotate -vf /etc/logrotate.d/`   
    - `-v`: Hiện thị thêm thông tin, có ích khi bạn muốn dò lỗi logrotate. 
    - `-f`: Bắt buộc rotate ngay lập tức.   
-   
+
 
 
 <a name='6'></a> 
