@@ -177,8 +177,11 @@ Giải thích: Dữ liệu có Facility là mail và có chế độ Priority l�
 `*.* @@172.16.69.23:10514`     
 Giải thích: Tất cả các log gồm mọi Facility và Priority sẽ được chuyển đến máy chủ có địa chỉ ip 172.16.69.23 bằng TCP qua port 10514    
 
-3.5 LAB    
-Ví dụ thực hiện ghi hết các log về quá trình đăng nhập hoặc xác thực hệ thống với tất cả Priority tại file mới /var/log/auth.log, ta sửa file /etc/rsyslog.conf thực hiện lệnh       
+3.5 Tìm hiểu file cấu hình `rsyslog.conf`   
+Dưới đây là file cấu hình `rsyslog.conf` đã bỏ comment.     
+![image](image/5.1.png)   
+
+Cơ bản trên file `rsyslog.conf` mặc định cho chúng ta thấy nơi lưu trữ các log tiến trình của hệ thống.      
 ![image](image/5.0.png)    
 Kết quả kiểm tra file /var/log/auth.log   
 ![image](image/4.9.png)   
@@ -186,7 +189,13 @@ Trong đó:
    - `1` là các trường Selector: chỉ ra nguồn tạo log và mức độ cảnh báo của log đó.   
    - `2` là các trường Action: để chỉ ra nơi lưu trữ log của tiến trình đó. Có 2 loại lưu tại file trong localhost hoặc gửi lên IP của máy chủ Log.
 
-*Note: -/var/log/syslog có nghĩa là đăng nhập vào tập tin /var/log/syslog. Dấu ngạch ngang trước nói với syslogd không gọi fsync (), tức là không xóa bộ đệm kernel vào đĩa sau mỗi lần ghi vào tệp.* 
+*Note: -/var/log/syslog có nghĩa là đăng nhập vào tập tin /var/log/syslog. Dấu ngạch ngang trước nói với syslogd không gọi fsync (), tức là không xóa bộ đệm kernel vào đĩa sau mỗi lần ghi vào tệp.*  
+
+<a name='4'></a>
+### 4. Logrotate      
+
+
+
 <a name='6'></a> 
 ## Tham khảo   
 [1]https://levanphu.info/tim-hieu-co-ban-ve-cac-loai-log-tren-linux-unix   
