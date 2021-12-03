@@ -193,13 +193,56 @@ Trong đó:
 
 <a name='4'></a>
 ### 4. Logrotate      
+4.1 Cấu hình mặc định của logrotate lưu tại `/etc/logrotate.conf`        
+
+![image](image/5.2.png)      
+- Theo như trên, log file được rotate hàng tuần, dữ liệu log được lưu trữ trong vòng 4 file, file log mới sẽ được tạo sau khi rotate file cũ.   
+- Các file log thêm hậu tố ngày trong tên file.       
+   
+4.2 Thông tin cấu hình log file của từng ứng dụng cụ thể được lưu tại `/etc/logrotate.d/`       
+![image](image/5.3.png)      
+
+4.3 Rotate    
+- Để phòng ngừa bản ghi log lấp đầy hệ thống, ta cần có cơ chế rotate.      
+
+|Thông số| Chức năng|    
+|----|----|    
+|daily|Mỗi ngày|   
+|weekly|Mỗi đầu tuần|    
+|monthly|Mỗi đầu tháng|    
+|yearly|Mỗi năm|   
+|missingok| Nếu file log vì lý do gì đấy bị mất hoặc không tồn tại *.log thì logrotate sẽ tự động di chuyển tới phần cấu hình log của file log khác mà không cần phải xuất ra thông báo lỗi.    
+|nomissingok|Ngược lại với missingok|    
+|rotate [number]|Quy định số lượng log file cũ đã được giữ lại sau khi rotate.|  
+|Notifempty|Không rotate log nếu file log này trống.|    
+|compress|Logrotate sẽ nén tất cả các file log lại sau khi đã được rotate, mặc định bằng gzip|    
+|Delaycompress| công việc nén sẽ được delay trễ hơn bằng việc sẽ nén file log cũ đó vào lần chạy rotate kế tiếp|     
+|nocompress|không sử dụng tính năng nén đối với file log cũ|    
+|compresscmd| Khi sử dụng chương trình nén như bzip2, xz hoặc zip|       
+|create|Phân quyền cho file log mới sau khi rotate|    
+|Dateext|Cài đặt hậu tố của tên log file là thời gian theo cấu trúc `yyyymmdd`|      
+|copytruncate|File log cũ được sao chép vào một tệp lưu trữ, và sau đó nó xóa các dòng log cũ|        
+|prerotate [Command] endscript|Để chạy một số lệnh trước khi quá trình rotate bắt đầu|   
+|postrotate [Command] endscript|Để chạy lệnh sau khi quá trình rotate kết thúc|    
+|sharedscripts|Script postrotate sẽ được chạy sau khi toàn bộ các file logs được rotate, ngược lại nếu không có option này thì sẽ được chạy sau mỗi log file được rotate|    
+
+Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung lượng file.              
+- `Với /var/log/wtmp` khi minsize 1M sẽ tạo tệp mới.    
+![image](image/5.5.png)    
+   - minsize 1M: Logrotate chỉ chạy nếu kích thước tệp bằng (hoặc lớn hơn) kích thước này.   
+   - create: Rotate tệp gốc và tạo tệp mới với sự cho phép người dùng và nhóm được chỉ định.   
+   - rotate: Giới hạn số vòng quay của file log. Vì vậy, điều này sẽ chỉ giữ lại 1 file log được rotate gần nhất.   
+   - monthly: rotate hàng tháng    
+   - missingok: bỏ qua thông báo lỗi khi tệp thực tế không có sẵn.    
+
 
 
 
 <a name='6'></a> 
 ## Tham khảo   
 [1]https://levanphu.info/tim-hieu-co-ban-ve-cac-loai-log-tren-linux-unix   
-[2]https://news.cloud365.vn/rsyslog-lab-co-ban-phan-1-huong-dan-cau-hinh-log-tap-trung-tren-linux/     
+[2]https://news.cloud365.vn/rsyslog-lab-co-ban-phan-1-huong-dan-cau-hinh-log-tap-trung-tren-linux/    
+[3]https://hocvps.com/logrotate/#2.1._L%E1%BB%B1a_ch%E1%BB%8Dn%C2%A0Log_file_%C4%91%C6%B0%E1%BB%A3c_rotate 
 
 
 
