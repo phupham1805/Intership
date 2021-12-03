@@ -235,7 +235,11 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
    - monthly: rotate hàng tháng    
    - missingok: bỏ qua thông báo lỗi khi tệp thực tế không có sẵn.    
 
-
+- Chạy Logrotate thủ công   
+   - `logrotate -vf /etc/logrotate.d/`   
+   - `-v`: Hiện thị thêm thông tin, có ích khi bạn muốn dò lỗi logrotate. 
+   - `-f`: Bắt buộc rotate ngay lập tức.   
+   
 
 
 <a name='6'></a> 
