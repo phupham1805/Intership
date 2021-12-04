@@ -115,8 +115,7 @@ Trong đó:
   - `PRI` hay `Priority` thể hiện cơ sở sinh ra log hoặc mức độ nghiêm trọng, là một số gồm 8 bit:     
        - 3 bit đầu thể hiện tính nghiêm trọng của thông báo.(severity levels)
        - 5 bit còn lại đại diện cho cơ sở sinh ra thông báo. (facility levels)         
-
-![image](image/4.8.png)   
+  
 - Giá trị PRI được tính như sau:  
     - `(Facility Value x 8) + Severity Value = PRI`      
 
