@@ -272,7 +272,7 @@ Giải thích: hiện thị tất cả journald messages phạm vi từ `2021-12
     - Tạo journal:    
        - Tạo thư mục để lưu `mkdir /var/log/journal`   
        - Trước khi journal được viết vào thư mục này thì phải phân quyền `chown root:systemd-journal /var/log/journal ` và `chmod 2755 /var/log/journal`    
-       - Giờ có thể reboot hệ thống hoặc dùng lệnh `killall -USR1 systemd-journal`   
+       - Giờ có thể reboot hệ thống.  
        - Kiểm tra dùng lệnh `journalctl -b`   
 
  <a name='6'></a> 
