@@ -287,6 +287,7 @@ Giải thích: hiện thị tất cả journald messages phạm vi từ `2021-12
 [1]https://levanphu.info/tim-hieu-co-ban-ve-cac-loai-log-tren-linux-unix   
 [2]https://news.cloud365.vn/rsyslog-lab-co-ban-phan-1-huong-dan-cau-hinh-log-tap-trung-tren-linux/    
 [3]https://hocvps.com/logrotate/#2.1._L%E1%BB%B1a_ch%E1%BB%8Dn%C2%A0Log_file_%C4%91%C6%B0%E1%BB%A3c_rotate 
+[4]https://github.com/vinhducnguyen1708/Internship-VNPT-IT/blob/master/Linux/Linux%20System/Log%2C%20syslog%2C%20rsyslog.md
 
 
 
