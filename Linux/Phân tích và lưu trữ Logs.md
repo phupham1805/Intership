@@ -108,23 +108,10 @@
 |7|Debug|`debug`-Quá trình kiểm tra hệ thống|     
 
 **Định dạng chung của một gói tin syslog**    
-- Định dạng của một thông báo syslog gồm 3 phần chính.   
-   `<PRI> HEADER MSG`      
+- Định dạng của một thông báo syslog gồm 2 phần chính.   
+   `HEADER MSG`           
 
 Trong đó:   
-  - `PRI` hay `Priority` thể hiện cơ sở sinh ra log hoặc mức độ nghiêm trọng, là một số gồm 8 bit:     
-       - 3 bit đầu thể hiện tính nghiêm trọng của thông báo.(severity levels)
-       - 5 bit còn lại đại diện cho cơ sở sinh ra thông báo. (facility levels)         
-  
-- Giá trị PRI được tính như sau:  
-    - `(Facility Value x 8) + Severity Value = PRI`      
-
-VD: Thông báo từ kernel (Facility=0) với mức độ nghiêm trọng (Severity=0) thì giá trị Priority = 0x8+0 =0     
-Trường hợp khác, với "local use 4" (Facility=20) mức độ nghiêm trọng (Severity=5) thì số Priority là 20 x 8 + 5 = 165      
-Ngược lại: 
-Nếu biết Priority = 191 thì xác định `Facility` và `Severity` là bao nhiêu ?  
-- Lấy 191:8=23.875 -> Facility =23 ("local 7") -> Severity =191-(23*8)=7 (debug).     
-
 `HEADER`    
 - Phần HEADER thì gồm các phần chính sau:   
     - Time stamp -Thời gian mà thông báo được tạo ra. Thời gian này được lấy từ thời gian hệ thống    
