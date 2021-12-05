@@ -226,9 +226,54 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
    - `-v`: Hiện thị thêm thông tin, có ích khi bạn muốn dò lỗi logrotate. 
    - `-f`: Bắt buộc rotate ngay lập tức.   
 
+<a name='5'></a>     
+### 5. Journal     
 
+- `Journal` là một daemon (chạy background trên hệ thống), một bộ phận của systemd, là một system service thực hiện việc thu thập và lưu trữ dữ liệu logging.   
+- Mặc định log sẽ được chứa trong `/run/log/journal/`, bởi dữ liệu trong `/run` sẽ bị mất sau khi reboot, log cũng sẽ bị mất theo (có thể config để thay đổi điều này).   
+- Journalctl là một công cụ để query (truy vấn).     
+- Câu lệnh:    
+    - `journalctl -p err` câu lệnh này hiện thị journal đăng nhập từ chế độ err trở lên.      
 
-<a name='6'></a> 
+![image](image/5.6.png)       
+
+- Câu lệnh:  
+    - `journalctl -b 0` câu lệnh này cho phép xem log của lần boot hiện tại.   
+   
+![image](image/5.7.png)      
+*Đối với lần boot trước, sử dụng "-1" thay vì "0", hoặc hai lần boot trước là "-2",...*     
+     `journalctl -b -1`     
+
+- Một số tiến trình được bắt đầu và quản lý bởi các unit được gọi là systemd. Để xem tất cả các bản ghi liên quan đến cron service unit, hãy dùng lệnh:      
+`journalctl -u cron.service`    
+- Xem list các unit có sẵn bằng lệnh:   
+`systemctl list-dependencies`     
+
+![image](image/5.8.png)     
+
+- Câu lệnh cho phép xem journald được tạo ra trên thời gian thực  `journalctl -f`     
+
+![image](image/5.9.png)    
+
+- Câu lệnh cho phép xem journald messages đã được viết ở PID=1 từ 12h trưa - 17h chiều.    
+`journalctl _PID=1 --since 12:00:00 --until 17:00:00`       
+
+![image](image/6.0.png)      
+- VD:   `journalctl --since "2021-12-03 15:00:00" --until "2021-12-05 17:00:00"`   
+Giải thích: hiện thị tất cả journald messgaes phạm vi từ `2021-12-03 15:00:00` đến `2021-12-05 17:00:00`      
+`journalctl --since today`:hiện thị journald messages trong ngày hôm nay. 
+`journalctl --since "-1hour"`:hiện thị journald messages trước 1h       
+
+- `journalctl _SYSTEMD_UNIT=sshd.service`: câu lệnh xem chi tiết log của service.   
+
+- Vì theo mặc định, Journal được lưu ở file /run/log/journal. Nên sau khi reboot journal sẽ bị mất. Để tạo một journal được đóng dấu khi hệ thống khởi động lại, bạn phải chắc chắn thư mục /var/log/journal tồn tại.   
+    - Tạo journal:    
+       - Tạo thư mục để lưu `mkdir /var/log/journal`   
+       - Trước khi journal được viết vào thư mục này thì phải phân quyền `chown root:systemd-journal /var/log/journal ` và `chmod 2755 /var/log/journal`    
+       - Giờ có thể reboot hệ thống hoặc dùng lệnh `killall -USR1 systemd-journal`   
+       - Kiểm tra dùng lệnh `journalctl -b`   
+
+ <a name='6'></a> 
 ## Tham khảo   
 [1]https://levanphu.info/tim-hieu-co-ban-ve-cac-loai-log-tren-linux-unix   
 [2]https://news.cloud365.vn/rsyslog-lab-co-ban-phan-1-huong-dan-cau-hinh-log-tap-trung-tren-linux/    
