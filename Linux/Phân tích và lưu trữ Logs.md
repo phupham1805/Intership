@@ -260,11 +260,20 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
 
 ![image](image/6.0.png)      
 - VD:   `journalctl --since "2021-12-03 15:00:00" --until "2021-12-05 17:00:00"`   
-Giải thích: hiện thị tất cả journald messgaes phạm vi từ `2021-12-03 15:00:00` đến `2021-12-05 17:00:00`      
+Giải thích: hiện thị tất cả journald messages phạm vi từ `2021-12-03 15:00:00` đến `2021-12-05 17:00:00`      
 `journalctl --since today`:hiện thị journald messages trong ngày hôm nay. 
 `journalctl --since "-1hour"`:hiện thị journald messages trước 1h       
 
-- `journalctl _SYSTEMD_UNIT=sshd.service`: câu lệnh xem chi tiết log của service.   
+- `journalctl _SYSTEMD_UNIT=sshd.service _PID`: câu lệnh xem chi tiết log của service với PID tương ứng.     
+- Cấu trúc:    `journalctl [Options]`   
+    - [Options]:    
+        - `_UID`: UID của user đang chạy process.  
+        - `_EXE`: đường dẫn đến thực thi cho process.  
+        - `_COMM`: tên của lệnh  
+        - `_PID`: PID của process.
+        - `_SYSTEMD_UNIT=httpd.service`: chi tiết log của service.
+
+![image](image/6.1.png)   
 
 - Vì theo mặc định, Journal được lưu ở file /run/log/journal. Nên sau khi reboot journal sẽ bị mất. Để tạo một journal được đóng dấu khi hệ thống khởi động lại, bạn phải chắc chắn thư mục /var/log/journal tồn tại.   
     - Tạo journal:    
