@@ -243,14 +243,7 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
 ![image](image/5.7.png)      
 *Đối với lần boot trước, sử dụng "-1" thay vì "0", hoặc hai lần boot trước là "-2",...*     
      `journalctl -b -1`     
-
-- Một số tiến trình được bắt đầu và quản lý bởi các unit được gọi là systemd. Để xem tất cả các bản ghi liên quan đến cron service unit, hãy dùng lệnh:      
-`journalctl -u cron.service`    
-- Xem list các unit có sẵn bằng lệnh:   
-`systemctl list-dependencies`     
-
-![image](image/5.8.png)     
-
+   
 - Câu lệnh cho phép xem journald được tạo ra trên thời gian thực  `journalctl -f`     
 
 ![image](image/5.9.png)    
