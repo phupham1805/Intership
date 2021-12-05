@@ -230,7 +230,7 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
 ### 5. Journal     
 
 - `Journal` là một daemon (chạy background trên hệ thống), một bộ phận của systemd, là một system service thực hiện việc thu thập và lưu trữ dữ liệu logging.   
-- Mặc định log sẽ được chứa trong `/run/log/journal/`, bởi dữ liệu trong `/run` sẽ bị mất sau khi reboot, log cũng sẽ bị mất theo (có thể config để thay đổi điều này).   
+- Mặc định log sẽ được chứa trong `/run/log/journal`, bởi dữ liệu trong `/run` sẽ bị mất sau khi reboot, log cũng sẽ bị mất theo (có thể config để thay đổi điều này).   
 - Journalctl là một công cụ để query (truy vấn).     
 - Câu lệnh:    
     - `journalctl -p err` câu lệnh này hiện thị journal đăng nhập từ chế độ err trở lên.      
