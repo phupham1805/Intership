@@ -233,7 +233,7 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
 - Mặc định log sẽ được chứa trong `/run/log/journal`, bởi dữ liệu trong `/run` sẽ bị mất sau khi reboot, log cũng sẽ bị mất theo (có thể config để thay đổi điều này).   
 - Journalctl là một công cụ để query (truy vấn).     
 - Câu lệnh:    
-    - `journalctl -p err` câu lệnh này hiện thị journal đăng nhập từ chế độ err trở lên.      
+    - `journalctl -p err` câu lệnh này hiện thị journald messages từ chế độ err trở lên.      
 
 ![image](image/5.6.png)       
 
