@@ -3,7 +3,7 @@
 [2. Giao thức Syslog là gì?](#2)    
 [3. Rsyslog là gì?](#3)      
 [4. Logrotate là gì?](#4)     
-[5. Journal](#5)     
+[5. Journalctl](#5)     
 
 ## [Tham Khảo](#6)   
 
@@ -273,7 +273,13 @@ Giải thích: hiện thị tất cả journald messages phạm vi từ `2021-12
        - Tạo thư mục để lưu `mkdir /var/log/journal`   
        - Trước khi journal được viết vào thư mục này thì phải phân quyền `chown root:systemd-journal /var/log/journal ` và `chmod 2755 /var/log/journal`    
        - Giờ có thể reboot hệ thống.  
-       - Kiểm tra dùng lệnh `journalctl -b`   
+       - Kiểm tra dùng lệnh `journalctl -b`     
+
+- Lệnh `journalctl --vacuum-[options]`: xóa file fournal cũ.        
+     - [Options]    
+        - `size=50M`: xóa file với dung lượng đĩa không quá 50M.  
+        - `time=1years`: xóa tất cả file chứa trong vòng 1 năm.   
+        - `files=4`: xóa file với số files không quá 4.
 
  <a name='6'></a> 
 ## Tham khảo   
