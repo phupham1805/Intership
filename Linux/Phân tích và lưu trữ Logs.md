@@ -278,7 +278,7 @@ Giải thích: hiện thị tất cả journald messages phạm vi từ `2021-12
 - Lệnh `journalctl --vacuum-[options]`: xóa file fournal cũ.        
      - [Options]    
         - `size=50M`: xóa file với dung lượng đĩa không quá 50M.  
-        - `time=1years`: xóa tất cả file chứa trong vòng 1 năm.   
+        - `time=1years`: xóa tất cả file chứa trong vòng quá 1 năm.   
         - `files=4`: xóa file với số files không quá 4.
 
  <a name='6'></a> 
