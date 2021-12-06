@@ -227,9 +227,9 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
    - `-f`: Bắt buộc rotate ngay lập tức.   
 
 <a name='5'></a>     
-### 5. Journal     
+### 5. Journalctl     
 
-- `Journal` là một daemon (chạy background trên hệ thống), một bộ phận của systemd, là một system service thực hiện việc thu thập và lưu trữ dữ liệu logging.   
+- `Journald` là một daemon (chạy background trên hệ thống), một bộ phận của systemd, là một system service thực hiện việc thu thập và lưu trữ dữ liệu logging.   
 - Mặc định log sẽ được chứa trong `/run/log/journal`, bởi dữ liệu trong `/run` sẽ bị mất sau khi reboot, log cũng sẽ bị mất theo (có thể config để thay đổi điều này).   
 - Journalctl là một công cụ để query (truy vấn).     
 - Câu lệnh:    
@@ -238,7 +238,7 @@ Ví dụ: Chúng ta có thể quy định tiến trình rotate dựa vào dung l
 ![image](image/5.6.png)       
 
 - Câu lệnh:  
-    - `journalctl -b 0` câu lệnh này cho phép xem log của lần boot hiện tại.   
+    - `journalctl -b 0` câu lệnh này cho phép xem log messages của lần boot hiện tại.   
    
 ![image](image/5.7.png)      
 *Đối với lần boot trước, sử dụng "-1" thay vì "0", hoặc hai lần boot trước là "-2",...*     
@@ -260,10 +260,10 @@ Giải thích: hiện thị tất cả journald messages phạm vi từ `2021-12
 - `journalctl _SYSTEMD_UNIT=sshd.service _PID`: câu lệnh xem chi tiết log của service với PID tương ứng.     
 - Cấu trúc:    `journalctl [Options]`   
     - [Options]:    
-        - `_UID`: UID của user đang chạy process.  
-        - `_EXE`: đường dẫn đến thực thi cho process.  
-        - `_COMM`: tên của lệnh  
-        - `_PID`: PID của process.
+        - `_UID`:xem log messages dựa trên UID của user đang chạy process.  
+        - `_EXE`:xem log messages dựa trên đường dẫn đến thực thi cho process.  
+        - `_COMM`:xem log messages dựa trên tên của lệnh.  
+        - `_PID`:xem log messages dựa trên PID của process.
         - `_SYSTEMD_UNIT=httpd.service`: chi tiết log của service.
 
 ![image](image/6.1.png)   
