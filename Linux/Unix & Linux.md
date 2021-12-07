@@ -62,7 +62,7 @@ VD: Mở 1 file `/etc/os-release` để xem hệ điều hành đã được cà
 <a name='4'></a>  
 ## Tham khảo  
 
-[1]https://techshare.vn/linux/sanh-dieu-hanh-linux-va-unix 
+[1]https://techshare.vn/linux/sanh-dieu-hanh-linux-va-unix    
 [2]https://github.com/phupham1805/linux-basics-course/blob/master/docs/03-Linux-Core-Concepts/02-The-Linux-Kernel.md 
 
 
