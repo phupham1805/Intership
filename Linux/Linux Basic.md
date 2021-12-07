@@ -33,6 +33,7 @@
 
 - `INIT Process`    
    - Hầu hết các bản distro Linux hiện nay, chức năng `INIT` được gọi là `systemd` daemon.     
+   - `systemd`: là process chạy đầu tiên trên hệ thống với `ID=1`.    
    - `systemd`: giúp máy chủ Linux về trạng thái có thể sử dụng được.   
    - `systemd`: gắn kết các hệ thống tệp, bắt đầu và quản lý dịch vụ hệ thống.           
 
