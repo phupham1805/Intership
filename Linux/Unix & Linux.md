@@ -1,6 +1,6 @@
 # Mục lục  
- [1.Tổng quan về Unix và Linux](#1)  
- [2.Sự khác nhau giữa Unix và Linux](#2)   
+ [1. Tổng quan về Unix và Linux](#1)  
+ [2. Sự khác nhau giữa Unix và Linux](#2)   
  [3. Kernel and User Space](#3)  
 
 ## [Tham khảo](#4)  
