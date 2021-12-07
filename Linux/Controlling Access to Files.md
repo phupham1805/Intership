@@ -141,11 +141,18 @@
 
 
 - Lệnh umask: phân quyền mặc định trên file/thư mục.    
-- VD: Phân quyền cho file_name 752 thì ta thực thi    
+- VD: Phân quyền cho file_name 751 thì ta thực thi    
     - umask: 026    
     - mkdir:  folder_name       
-Thì mặc định folder_name sẽ được phân quyền là 752     
+Thì mặc định folder_name sẽ được phân quyền là 751     
 - Đồng thời lúc đó thì nó sẽ tự động phân quyền cho file trong folder là 640   
+
+![image](image/7.4.png)    
+
+- `Note`: 
+    - Mặc định umask của root là 0022 vì thế quyền khi tạo directory sẽ là 755 và quyền của file sẽ là 644.
+    - Mặc định umask của owner 0002 vì thế quyền khi tạo directory sẽ là 775 và quyền của file sẽ là 664.
+
 
 <a name ='2'></a>
 ## 2.Tham khảo
