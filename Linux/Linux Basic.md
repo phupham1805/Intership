@@ -36,7 +36,10 @@
    - `systemd`: giúp máy chủ Linux về trạng thái có thể sử dụng được.   
    - `systemd`: gắn kết các hệ thống tệp, bắt đầu và quản lý dịch vụ hệ thống.           
 
-- Lệnh `ls -l /sbin/init`: để check init hệ thống.    
+- Lệnh `ls -l /sbin/init`: để check init hệ thống.      
+ 
+![image](image/8.1.png)    
+
 
 <a name='2'></a>    
 ## 2. Run - Levels     
@@ -54,8 +57,10 @@
 
 - Lệnh `systemctl set-default [argument]`: thay đổi target mặc định.    
    - Trong đó [argument]:   
-       - `multi-user.target` or `graphical.target`.     
- 
+       - `multi-user.target` or `graphical.target`.      
+
+![image](image/8.2.png)   
+    
 <a name='3'></a>   
 ### 3. File Types Linux.    
 
@@ -73,6 +78,8 @@
     - Named Pipes: cho phép kết nối một process làm đầu vào cho một process khác.       
 
 - Lệnh `file`: để xác định lại tệp.   
+
+![image](image/8.3.png)   
 
 <a name='4'></a>  
 ## Tham khảo    
