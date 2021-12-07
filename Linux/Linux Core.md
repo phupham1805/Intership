@@ -1,9 +1,10 @@
 # Mục lục  
  [1. Tổng quan về Unix và Linux](#1)  
  [2. Sự khác nhau giữa Unix và Linux](#2)   
- [3. Kernel and User Space](#3)  
+ [3. Kernel and User Space](#3)    
+ [4. Working with Hardware](#4)
 
-## [Tham khảo](#4)  
+## [Tham khảo](#5)  
 
 ---
 
@@ -57,9 +58,22 @@ VD: Mở 1 file `/etc/os-release` để xem hệ điều hành đã được cà
 
 ![image](image/7.7.png)   
 
+<a name='4'></a>   
+### 4. Working with Hardware  
+
+- Lệnh `dmesg`: hiện thị messages từ khu vực của kernel được gọi là `Ring Buffer`.   
+- `PCI (Peripheral Component Interconnect): Liệt kê tất cả các thiết bị kết nối thành phần ngoại vi được cấu hình trong hệ thống.   
+- VD: thiết bị PCI: `Ethernet Cards`, `RAID Controllers`, `Video Cards` và `wireless Adaptors`.   
+- Lệnh `lspci`    
+
+![image](image/7.8.png)     
+- Lệnh `lscpu`: liệt kê thông tin `CPU` như là CPU architechture, cpu op-modes (32 bit, 64 bit).... 
+
+![image](image/7.9.png)      
+- Card là thiết bị quản lý đĩa cứng trên server, dùng để tạo Virtual Disk cho các ổ cứng.      
 
 
-<a name='4'></a>  
+<a name='5'></a>  
 ## Tham khảo  
 
 [1]https://techshare.vn/linux/sanh-dieu-hanh-linux-va-unix    
