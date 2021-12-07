@@ -94,7 +94,9 @@
 
 ![image](image/7.1.png)    
 
-- Lệnh `PS1="[\d \t \u@\h \w] $ "`: Để thay đổi bash prompt hiện thị `date`, `time`, `username of the current user`, `hostname`, và `current working  directory`.    
+- Lệnh `PS1="[\d \t \u@\h \w] $ "`: Để thay đổi bash prompt hiện thị `date`, `time`, `username of the current user`, `hostname`, và `current working  directory`.      
+
+![image](image/7.3.png)   
 
 <a name ='6'></a>
 ## Tham khảo    
