@@ -82,12 +82,7 @@ Tính địa chỉ mạng cho 172.16.130.131/24
 - Ta có thể rút ngắn dải địa chỉ IP trên thành:   
 `abcd:34::2543:983:0:0:0:ab23`       
 
-### IPv6 Subnetting      
-
-- `unicast`: được định nghĩa là một cổng của một node IPv6.    
-- `multicast`: được địng nghĩa là một nhóm các cổng IPv6.  
-- `anycast`: được đăng ký cho nhiều cổng (trên nhiều node).       
-
+### IPv6 Subnetting            
 - Địa chỉ IPv6 gồm 2 phần:    
     - `Network Prefix`    
    
