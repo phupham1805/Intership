@@ -106,14 +106,26 @@ Tính địa chỉ mạng cho 172.16.130.131/24
 |::| Không xác định địa chỉ|Sẽ lắng nghe tất cả địa chỉ IP đã được cấu hình|     
 |::/0:|route mặc định|Là route mặc định trong bảng định tuyến|    
 |2000::/3|Địa chỉ Global unicast|Địa chỉ IPv6 bình thường hiện đang được phân bổ bởi IANA(Internet Assigned Numbers Authority - Tổ chức cấp phát số hiệu Inter net) phạm vi từ 2000::/16 đến 3ff::/16|
-|fd00::/8|Địa chỉ local duy nhất|Chỉ được sử dụng private và không được sử dụng trên `Internet` toàn cầu|      
-|fe80::/10|Địa chỉ Link-local|Mỗi IPv6 card tự cấu hình một địa chỉ `link-local unicast` chỉ làm việc trong link-local trên mạng fe80::/64 và được sử dụng trong tương lai|       
+|fd00::/8|Địa chỉ Unique local|Chỉ được sử dụng private và không được sử dụng trên `Internet` toàn cầu|      
+|fe80::/10|Địa chỉ Link-local|Mỗi IPv6 interface tự cấu hình một địa chỉ `link-local unicast` chỉ làm việc trong link-local trên mạng fe80::/64|       
 |ff00::/8|Multicast|IPv6 tương đương 224.0.0.0/4 . Multicast được sử dụng để truyền đến đa host tại cùng một thời gian, nó không có địa chỉ broadcast|       
 
 ![image](image/8.8.png)   
 
-- Một địa chỉ `link-local` là địa chỉ không thể thay đổi sử dụng để giao tiếp với máy chủ trên link network riêng.      
--   
+`link-local`   
+- Một địa chỉ `link-local` là loại địa chỉ sử dụng trên nội bộ một đường link, các gói với địa chỉ link-local không thể đi qua lại giữa các interface và vì vậy các địa chỉ link-local có thể trùng nhau miễn là chúng được đặt tên các link khác nhau.             
+- Khi một interface được kích hoạt sử dụng IPv6, một địa chỉ link-local sẽ được tự động phát sinh ra trên interface ấy.    
+
+   
+`Multicast`   
+- Một địa chỉ `multicast` cho phép hệ thống gửi lưu lượng qua một địa chỉ IP đặc biệt (IP multicast) được nhận bởi đa hệ thống.  
+- Một gói tin có địa chỉ multicast sẽ chuyển tới tất cả các interface có gán địa chỉ multicast này.      
+
+### IPv6 Address Configuration     
+
+- Một đặc trưng máy(Red Hat Enterprise Linux) đã cấu hình được địa chỉ IPv4 thông qua DHCP thì thường đã được cấu hình để sử dụng SLAAC (Stateless Address Autoconfiguration) để được địa chỉ IPv6.   
+- IPv6 phát triển phấn phối SLAAC và DHCPv6, đang sử dụng SLAAC chỉ để cung cấp thông tin địa chỉ mạng và DHCPv6 để cung cấp thông tin khác như là DNS server và tìm kiếm domain để cấu hình.     
+ 
 
 
 <a name='5'></a>   
