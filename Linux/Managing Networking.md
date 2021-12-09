@@ -124,9 +124,7 @@ Tính địa chỉ mạng cho 172.16.130.131/24
 ### IPv6 Address Configuration     
 
 - Một đặc trưng máy(Red Hat Enterprise Linux) đã cấu hình được địa chỉ IPv4 thông qua DHCP thì thường đã được cấu hình để sử dụng SLAAC (Stateless Address Autoconfiguration) để được địa chỉ IPv6.   
-- IPv6 phát triển phấn phối SLAAC và DHCPv6, đang sử dụng SLAAC chỉ để cung cấp thông tin địa chỉ mạng và DHCPv6 để cung cấp thông tin khác như là DNS server và tìm kiếm domain để cấu hình.     
- 
-
+- IPv6 phát triển phấn phối SLAAC và DHCPv6, đang sử dụng SLAAC chỉ để cung cấp thông tin địa chỉ mạng và DHCPv6 để cung cấp thông tin khác như là DNS server và tìm kiếm domain để cấu hình.      
 
 <a name='5'></a>   
 
