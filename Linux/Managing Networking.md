@@ -57,7 +57,7 @@ Tính địa chỉ mạng cho 172.16.130.131/24
 - Địa chỉ IP `127.0.0.1` là địa chỉ IP của thiết bị (localhost).        
 
 ### IPv4 Routing       
-- Định tuyến là phương thức mà router dùng để chuyển gói tin đến địa chỉ đích một cách tối ưu nhất.(tìm con đường đi ngắn nhất).   
+- Định tuyến là phương thức mà router dùng để chuyển gói tin đến địa chỉ đích một cách tối ưu nhất.(tìm con đường đi ngắn nhất) thông qua các subnet.
 - Mỗi host sẽ có một bảng định tuyến `routing table` có nhiệm vụ định tuyến lưu lượng cho mạng riêng. Một bảng định tuyến sẽ liệt kê các con đường đến đích.    
 - Bảng định tuyến mặc định cho toàn bộ Internet IPv4 là `0.0.0.0/0`.     
 
@@ -69,7 +69,56 @@ Tính địa chỉ mạng cho 172.16.130.131/24
 <a name='3'></a>  
 ## 3. IPv6 Networking     
 
-- Một địa chỉ IPv6 là một số 128 bit.
+- Một địa chỉ IPv6 là một số 128 bit.     
+- IPv6 có thể sử dụng song song với IPv4 thì được gọi là mode `dual-stack`(ngăn xếp kép).    
+- Red Hat Enterprise Linux vận hành với `mode dual-stack` mặc định.      
+
+### IPv6 Address     
+
+- Địa chỉ IPv6 dài 128 bit, chia thành 8 nhóm, mỗi nhóm gồm 16 bit, được ngăn cách nhau bởi dấu `:`, mỗi nhóm được biểu diễn bằng 4 số `hexa`.   
+
+- VD: `abcd:0034:0000:2543:0983:0000:0000:0000:ab23`    
+
+- Ta có thể rút ngắn dải địa chỉ IP trên thành:   
+`abcd:34::2543:983:0:0:0:ab23`       
+
+### IPv6 Subnetting      
+
+- `unicast`: được định nghĩa là một cổng của một node IPv6.    
+- `multicast`: được địng nghĩa là một nhóm các cổng IPv6.  
+- `anycast`: được đăng ký cho nhiều cổng (trên nhiều node).       
+
+- Địa chỉ IPv6 gồm 2 phần:    
+    - `Network Prefix`    
+   
+    - `Interface ID`     
+
+![image](image/8.6.png)      
+
+- Khác với IPv4 thì IPv6 có tiêu chuẩn subnet mask và được sử dụng hầu hết ở tất cả các địa chỉ bình thường là `/64`. (một nửa network prefix và một nửa interface ID)       
+- Đặc biệt, người cung cấp mạng sẽ phân bổ prefix `/48`, để 16 bits cho `subnet`.  
+
+![image](image/8.7.png)      
+
+|IPv6 Address or Network|Mục đích|Mô tả|      
+|----|----|----|    
+|::1/128|localhost|`127.0.0.1/8` đặt làm địa chỉ loopback|      
+|::| Không xác định địa chỉ|Sẽ lắng nghe tất cả địa chỉ IP đã được cấu hình|     
+|::/0:|route mặc định|Là route mặc định trong bảng định tuyến|    
+|2000::/3|Địa chỉ Global unicast|Địa chỉ IPv6 bình thường hiện đang được phân bổ bởi IANA(Internet Assigned Numbers Authority - Tổ chức cấp phát số hiệu Inter net) phạm vi từ 2000::/16 đến 3ff::/16|
+|fd00::/8|Địa chỉ local duy nhất|Chỉ được sử dụng private và không được sử dụng trên `Internet` toàn cầu|      
+|fe80::/10|Địa chỉ Link-local|Mỗi IPv6 card tự cấu hình một địa chỉ `link-local unicast` chỉ làm việc trong link-local trên mạng fe80::/64 và được sử dụng trong tương lai|       
+|ff00::/8|Multicast|IPv6 tương đương 224.0.0.0/4 . Multicast được sử dụng để truyền đến đa host tại cùng một thời gian, nó không có địa chỉ broadcast|     
+
+
+
+   
+
+
+
+
+
+
 
 
 
