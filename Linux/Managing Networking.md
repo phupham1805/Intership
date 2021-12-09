@@ -108,7 +108,20 @@ Tính địa chỉ mạng cho 172.16.130.131/24
 |2000::/3|Địa chỉ Global unicast|Địa chỉ IPv6 bình thường hiện đang được phân bổ bởi IANA(Internet Assigned Numbers Authority - Tổ chức cấp phát số hiệu Inter net) phạm vi từ 2000::/16 đến 3ff::/16|
 |fd00::/8|Địa chỉ local duy nhất|Chỉ được sử dụng private và không được sử dụng trên `Internet` toàn cầu|      
 |fe80::/10|Địa chỉ Link-local|Mỗi IPv6 card tự cấu hình một địa chỉ `link-local unicast` chỉ làm việc trong link-local trên mạng fe80::/64 và được sử dụng trong tương lai|       
-|ff00::/8|Multicast|IPv6 tương đương 224.0.0.0/4 . Multicast được sử dụng để truyền đến đa host tại cùng một thời gian, nó không có địa chỉ broadcast|     
+|ff00::/8|Multicast|IPv6 tương đương 224.0.0.0/4 . Multicast được sử dụng để truyền đến đa host tại cùng một thời gian, nó không có địa chỉ broadcast|       
+
+![image](image/8.8.png)   
+
+- Một địa chỉ `link-local` là địa chỉ không thể thay đổi sử dụng để giao tiếp với máy chủ trên link network riêng.      
+-   
+
+
+<a name='5'></a>   
+
+## Tham Khảo   
+
+[1]https://vinahost.vn/ipv6-la-gi/   
+
 
 
 
