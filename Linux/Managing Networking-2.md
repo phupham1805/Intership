@@ -56,7 +56,57 @@ Trong đó:
 
 - Ping `ping6 ff02::1%ens33`: dùng để sử dụng để tìm nút IPv6 khác trên mạng local.     
 
-![image](image/9.3.png)   
+![image](image/9.3.png)      
+
+### Troubleshooting Routing     
+
+- Lệnh `ip route`: hiện thị thông tin routing table của IPv4.      
+
+![image](image/9.4.png)       
+
+- Cấu trúc: `ip [Options] route`    
+    - [Options]:    
+        - `-6`: hiện thị bảng định tuyến của IPv6.         
+
+- 
+
+## Tracing Routes Taken by Traffic      
+
+- `Traceroute` là công cụ để xác định đường đi được sử dụng để đến đích của một gói tin. Công cụ này sử dụng giao thức ICMP.      
+- `Traceroute` hoạt động bằng cách gửi một loạt các yêu cầu echo ICMP đến đích.    
+
+![image](image/9.5.png)   
+
+- `***`: hiện thị gói tin không đến được đích do mất mạng, lưu lượng lớn dẫn đến tắc nghẽn hoặc tường lửa làm giảm lưu lượng.          
+
+### Troubleshooting Port and Services   
+- Dịch vụ TCP sử dụng sockets là điểm cuối end-ponit trong liên kết truyền thông 2 chiều (two-way communication) và được tạo thành từ một địa chỉ IP, Protocol và number port.     
+- Service thì sử dụng một tiêu chuẩn port còn client thì sử dụng ngẫu nhiên port có sẵn.    
+- Danh sách các port tiêu chuẩn của service được lưu ở file `/etc/services`    
+
+![image](image/9.6.png)    
+
+- Lệnh `ss`: hiện thị thông số socket.     
+- Cấu trúc:     
+    - `ss [Options]`:   
+    - [Options]   
+       - `-n`: hiện thị số thay thế của tên cho interface và port.    
+       - `-t`: hiện thị sockets TCP.    
+       - `-l`: chỉ hiện thị socket listening.   
+       - `-p`: hiện thị process đang sử dụng socket.   
+       - `-a`: hiện thị tất cả (listening and established)     
+       - `-A inet`: hiện thị các kết nối hoạt động cho tất cả địa chỉ inet. (but no listening sockets).      
+
+![image](image/9.7.png)     
+
+
+
+
+
+
+
+
+
 
 
 
