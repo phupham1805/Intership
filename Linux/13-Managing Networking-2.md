@@ -159,7 +159,7 @@ VD:
 
 ![image](image/10.4.png)         
 
-- Lệnh `nmcli con show [name]`: hiện thị cài đặt hiện tại cho kết nối.    
+- Lệnh `nmcli con show [name]`: hiện thị danh sách cài đặt hiện tại cho kết nối.    
 
 ![image](image/10.3.png)    
 
