@@ -28,7 +28,7 @@
 
 ![image](image/8.9.png)   
 
-- Lệnh `ip addr show`: hiện thị thông tin của từng `Ethernet` đã được kết nối.    
+- Lệnh `ip addr show`: hiện thị thông tin của từng `interface` đã được kết nối.    
 
 ![image](image/9.0.png)    
 
@@ -209,7 +209,7 @@ VD:
 |ipv6.ignore-auto-dns true|IPV6_PEERDNS=no|Ignore thông tin DNS server từ DHCP server|      
 |connection.autoconnect yes|ONBOOT=yes|tự động kích hoạt kết nối này tại boot|     
 |connection.id ens3|NAME=ens3| Tên của kết nối này|    
-|connection.interface-name ens3|DEVICE=ens3|Kết nội bị ràng buộc `bound` tới interface mạng với tên này|    
+|connection.interface-name ens3|DEVICE=ens3|Kết nối bị ràng buộc `bound` tới interface mạng với tên này|    
 |802-3-ethernet.mac-address ...|HWADDR= ...|Kết nối thì bound tới interface mạng với địa chỉ MAC này|   
 
 ### Thay đổi tên hệ thống    
