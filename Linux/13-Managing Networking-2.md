@@ -1,8 +1,9 @@
 # Mục lục    
 [1. Network Interface ](#1)    
 [2. Lệnh ip](#2)      
+[3. Cấu hình mạng](#3)     
 
-## [Tham khảo](#3)    
+## [Tham khảo](#4)    
 
 ----     
 
@@ -66,9 +67,20 @@ Trong đó:
 
 - Cấu trúc: `ip [Options] route`    
     - [Options]:    
-        - `-6`: hiện thị bảng định tuyến của IPv6.         
+        - `-6`: hiện thị bảng định tuyến của IPv6.        
 
-- 
+- Cấu hình một cổng trên hệ thống B để truy cập đến hệ thống trên mạng khác.        
+`ip route add 192.168.2.0/24 via 192.168.1.1`         
+
+- Xóa một định tuyến `ip route del default`    
+- Hoặc chỉ định định tuyến cần xóa `ip route del <dia chi ip> via <gateway>`     
+
+![image](image/9.8.png)     
+
+- Lệnh `route -n`: hiện thị bảng định tuyến.      
+
+![image](image/9.9.png)   
+
 
 ## Tracing Routes Taken by Traffic      
 
@@ -95,10 +107,82 @@ Trong đó:
        - `-l`: chỉ hiện thị socket listening.   
        - `-p`: hiện thị process đang sử dụng socket.   
        - `-a`: hiện thị tất cả (listening and established)     
-       - `-A inet`: hiện thị các kết nối hoạt động cho tất cả địa chỉ inet. (but no listening sockets).      
+       - `-A inet`: hiện thị các kết nối hoạt động cho gia đình địa chỉ inet. (but no listening sockets).      
 
-![image](image/9.7.png)     
+![image](image/9.7.png)      
 
+<a name='3'></a>    
+
+### 3. Cấu hình mạng     
+
+- `Lệnh nmcli: dùng để quản lý cài đặt mạng và thiết bị`.      
+
+- Lệnh `nmcli dev status`: hiện thị trạng thái của tất cả thiết bị mạng.    
+
+![image](image/10.0.png)    
+
+- Lệnh `nmcli con show`: hiện thị danh sách của tất cả kết nối.      
+
+![image](image/10.1.png)      
+
+### Thêm một kết nối mạng   
+
+- Lệnh `nmcli con add`: để thêm một kết nối mạng mới.     
+
+VD: 
+- Lệnh `nmcli con add con-name eno2 type ethernet ifname eno2`    
+     - Giải thích: Thêm kết nối eno2 cho interface eno2. Và được lưu ở file `/etc/sysconfig/network-scripts/ifcfg-en02`    
+
+- Lệnh `nmcli con add con-name eno2 type ethernet ifname eno2 ip4 192.168.0.5/24 gw4 192.168.0.254`    
+    - Giải thích: thêm kết nối eno2 cho interface eno2 với một địa chỉ IPv4 tĩnh.       
+
+![image](image/10.2.png)     
+
+### Điều khiển kết nối mạng     
+
+- Lệnh `nmcli con up [name]`: kích hoạt kết nối.     
+    - `name`: là tên của kết nối chứ không phải tên của interface.     
+
+- Lệnh `nmcli dev dis [device]`: lệnh ngắt kết nối thiết bị interface mạng.       
+
+### Biến đổi cài đặt kết nối mạng     
+
+- File `/etc/sysconfig/network-scripts/ifcfg-*`: lưu trữ thông tin cấu hình kết nối `static`      
+
+![image](image/10.4.png)         
+
+- Lệnh `nmcli con show [name]`: hiện thị cài đặt hiện tại cho kết nối.    
+
+![image](image/10.3.png)    
+
+- Lệnh `nmcli con mod [name]`: sử dụng để thay đổi cài đặt cho một kết nối.   
+
+- Lệnh `nmcli con mod ens33 ipv4.address "172.16.30.2"`      
+    - Giải thích: Cài địa chỉ IPv4 cho kết nối tĩnh ens33.      
+
+- Lệnh `nmcli con del [name]`: sử dụng để xóa kết nối từ hệ thống.    
+
+- Lệnh `nmcli gen persisions`: để xem permissions hiện tại của bạn có thể thay đổi cấu hình mạng.     
+
+![image](image/10.5.png)    
+
+|Command|Purpose|    
+|----|----|    
+|nmcli dev status| hiện thị trạng thái NetworkManager của tất cả interface mạng|     
+|nmcli con show|Hiện thị tất cả kết nối|    
+|nmcli con show `name`|hiện thị cài đặt hiện tại cho kết nối `name`|   
+|nmcli con add con-name `name`|Thêm một kết nối `name`|     
+|nmcli con mod `name`|Biến đổi kết nối `name`|    
+|nmcli con reload|Tải lại cấu hình file (hữu ích khi bạn edited bằng tay)|    
+|nmcli con up `name`| Kích hoạt kết nối `name`|      
+|nmcli dev dis dev|Hủy kích hoạt và ngắt kết nối hiện tại trong interface mạng `dev`|    
+|nmcli con del `name`|Xóa kết nối `name` và file cấu hình của nó|    
+
+
+
+<a name='4'></a>    
+## Tham khảo    
+[1]https://github.com/phupham1805/linux-basics-course/blob/master/docs/07-Networking/03-Networking-Basics.md
 
 
 
