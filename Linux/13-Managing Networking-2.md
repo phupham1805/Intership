@@ -57,7 +57,15 @@ Trong đó:
 
 - Ping `ping6 ff02::1%ens33`: dùng để sử dụng để tìm nút IPv6 khác trên mạng local.     
 
-![image](image/9.3.png)      
+![image](image/9.3.png)         
+
+- Lệnh `ip addr add 172.16.130.5 dev ens33`: gán địa chỉ ip cho interface mạng.    
+
+![image](image/10.6.png)    
+
+- Lệnh `ip addr del 172.16.130.5/prefix dev ens33`: gỡ bỏ ip ra khỏi interface mạng.   
+
+![image](image/10.7.png)   
 
 ### Troubleshooting Routing     
 
