@@ -1,9 +1,10 @@
 # Mục lục    
 [1. Network Interface ](#1)    
 [2. Lệnh ip](#2)      
-[3. Cấu hình mạng](#3)     
+[3. Cấu hình mạng](#3)       
+[4. Chỉnh sửa files cấu hình mạng](#4)    
 
-## [Tham khảo](#4)    
+## [Tham khảo](#5)    
 
 ----     
 
@@ -186,9 +187,34 @@ VD:
 |nmcli dev dis dev|Hủy kích hoạt và ngắt kết nối hiện tại trong interface mạng `dev`|    
 |nmcli con del `name`|Xóa kết nối `name` và file cấu hình của nó|    
 
+<a name='4'></a>       
+## 4. Chỉnh sửa files cấu hình mạng    
+
+**SO SÁNH CỦA CÀI ĐẶT `NMCLI` VÀ CHỈ THỊ TRONG FILE `IFCFG-*`**        
+
+|nmcli con mod|ifcfg-* File|Effect|    
+|----|----|----|      
+|ipv4.method manual|BOOTPROTO=none|Địa chỉ IPv4 cấu hình tĩnh|   
+|ipv4.method auto|BOOTPROTO=dhcp|Tìm kiếm cấu hình đang cài đặt từ DHCPv4 server|    
+|ipv4 addresses "192.0.2.1/24   192.0.2.254"|IPADDR0=192.0.2.1 PREFIX0=24 GATEWAY0=192.0.2.254|Cài địa chỉ IPv4 tĩnh, network prefix, and default gateway|     
+|ipv4.dns 8.8.8.8|DNS0=8.8.8.8|Biến đổi /etc/resolv.conf để sử dụng nameserver này|    
+|ipve.dns-search example.com|DOMAIN=example.com|Biến đổi /etc/resolv.conf để sử dụng domain này trong chỉ thị `search`|     
+|ipv4.ignore-auto-dns true|PEERDNS=no|Ignore thông tin DNS server từ DHCP server|      
+|ipv6.method manual|IPV6_AUTOCONF=no|Cấu hình địa chỉ IPv6 tĩnh|        
+|ipv6.method auto|IPV6_AUTOCONF=yes|Setting cấu hình mạng bởi đang sử dụng SLAAC từ định tuyến quảng bá|     
+|ipv6.method dhcp|IPV6_AUTOCONF=no DHCPV6C=yes|Setting cấu hình mạng bởi đang sử dụng DHCPv6, nhưng không SLAAC|     
+|ipv6.address "2001:db8::a/64" 2001:db8::1"|IPV6ADDR=2001:db8::a/64 IPV^DEFAULTGW=2001:db8|Cài địa chỉ IPv6 tĩnh, network prefix và cổng mặc định|     
+|ipv6.dns ...| DNS0= ...|Biến đổi /etc/resolv.conf để sử dụng `nameserver` này|      
+|ipv6.dns-search example.com|DOMAIN=example.com|Biến đổi /etc/resol.conf để sử dụng domain này trong chỉ thị `search`|     
+|ipv6.ignore-auto-dns true|IPV6_PEERDNS=no|Ignore thông tin DNS server từ DHCP server|      
+|connection.autoconnect yes|ONBOOT=yes|tự động kích hoạt kết nối này tại boot|     
+|connection.id ens3|NAME=ens3| Tên của kết nối này|    
+|connection.interface-name ens3|DEVICE=ens3|Kết nội bị ràng buộc `bound` tới interface mạng với tên này|    
+|802-3-ethernet.mac-address ...|HWADDR= ...|Kết nối thì bound tới interface mạng với địa chỉ MAC này|   
 
 
-<a name='4'></a>    
+
+<a name='5'></a>    
 ## Tham khảo    
 [1]https://github.com/phupham1805/linux-basics-course/blob/master/docs/07-Networking/03-Networking-Basics.md
 
