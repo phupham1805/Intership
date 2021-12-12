@@ -69,7 +69,7 @@ Trong đó:
 
 ### Troubleshooting Routing     
 
-- Lệnh `ip route`: hiện thị thông tin routing table của IPv4.      
+- Lệnh `ip route`: kiểm chứng cổng mặc định.    
 
 ![image](image/9.4.png)       
 
