@@ -142,7 +142,7 @@ VD:
 - Lệnh `nmcli con add con-name eno2 type ethernet ifname eno2`    
      - Giải thích: Thêm kết nối eno2 cho interface eno2. Và được lưu ở file `/etc/sysconfig/network-scripts/ifcfg-en02`    
 
-- Lệnh `nmcli con add con-name eno2 type ethernet ifname eno2 ip4 192.168.0.5/24 gw4 192.168.0.254`    
+- Lệnh `nmcli con add con-name eno2 type ethernet ifname eno2 \ > ip4 192.168.0.5/24 gw4 192.168.0.254`    
     - Giải thích: thêm kết nối eno2 cho interface eno2 với một địa chỉ IPv4 tĩnh.       
 
 ![image](image/10.2.png)     
@@ -212,7 +212,18 @@ VD:
 |connection.interface-name ens3|DEVICE=ens3|Kết nội bị ràng buộc `bound` tới interface mạng với tên này|    
 |802-3-ethernet.mac-address ...|HWADDR= ...|Kết nối thì bound tới interface mạng với địa chỉ MAC này|   
 
+### Thay đổi tên hệ thống    
 
+- Tên máy chủ tĩnh được chỉ định trong file `/etc/hostname`.   
+- Lệnh `hostnamectl`: dùng để biến đổi file trên và có thể xem trạng thái của hệ thống.    
+
+![image](image/10.8.png)   
+
+- Cập nhật file `/etc/resolv.conf` sử dụng cài đặt DNS trong kết nối file cấu hình.    
+- Lệnh `nmcli con mod [name] ipv4.dns [IP]`: cài đặt DNS trong kết nối files cấu hình.     
+   - `+ or -`: trước `ipv4.dns` để thêm hoặc xóa một mục cá nhân.     
+
+![image](image/10.9.png)   
 
 <a name='5'></a>    
 ## Tham khảo    
