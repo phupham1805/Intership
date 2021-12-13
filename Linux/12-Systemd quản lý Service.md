@@ -1,7 +1,7 @@
 ## Mục lục    
 [1. Systemd](#1)       
 
-### [Tham khảo](#3)    
+### [Tham khảo](#2)    
 
 ----  
 
@@ -44,8 +44,9 @@
 - `timedated`: dùng để quản lý thời gian hệ thống hoặc thời gian mạng.    
 - `udev`: dùng để quản lý các thiết và fireware.           
 
-### Unit Service trong Systemd     
-- Loại này sẽ được khởi động khi bật/tắt.    
+### Unit Service trong Systemd  
+- Loại này sẽ được khởi động khi bật/tắt.      
+- `systemctl` có nhiệm vụ điều khiển hệ thống systemd và service manager. 
 - Lệnh `systemctl list-units --type=service`: chỉ hiện thị các unit service với trạng thái kích hoạt `ACTIVE`.      
 
 ![image](image/11.2.png)  
@@ -63,9 +64,37 @@
     - `restart`: khởi động lại service.    
     - `reload`: load lại file cấu hình (chỉ có một số service hỗ trợ như là Apache,Mysql,...).    
     - `enable`: service được khởi động cùng hệ thống.   
-    - `disable`: service không được khởi động cùng hệ thống.    
+    - `disable`: service không được khởi động cùng hệ thống.   
+    - `static`: khởi động bởi một unit đã bật tự động.          
 
 ![image](image/11.4.png)    
+
+- `Lệnh quản lý Service`     
+
+|Task|Command|     
+|----|----|     
+|Xem chi tiết thông tin về trạng thái `unit`|systemctl status `unit`|     
+|Stop một service trong hệ thống đang chạy|systemctl stop `unit`|     
+|Start một service trong hệ thống đang chạy|systemctl start `unit`|    
+|Restart một service trong hệ thống đang chạy|systemctl restart `unit`|    
+|Reload file cấu hình của service đang chạy|systemctl reload `unit`|    
+|Hoàn thành vô hiệu một service đã bắt đầu cả thủ công và lúc khởi động|systemctl mask `unit`|     
+
+- Lệnh `systemctl list-dependencies sshd.service`: để xem tất cả các phụ thuộc dependencies của service `sshd`.     
+
+![image](image/11.5.png)    
+
+- Để tránh xung đột giữa các dịch vụ khi start thì bạn dùng lệnh `systemctl mask [name]`. Nó sẽ tạo một đường link trong thư mục cấu hình đến file `/dev/null` để ngăn cản starting.    
+- `/dev/null` là một file thiết bị ảo dùng để chứa dữ liệu rác.      
+- Lệnh `systemctl unmask [name]`: để unmask unit service.      
+
+![image](image/11.6.png)      
+
+<a name='2'></a>   
+## Tham khảo  
+[1]https://freetuts.net/lenh-systemctl-trong-linux-3651.html
+
+
 
 
 
