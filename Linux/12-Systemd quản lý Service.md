@@ -73,7 +73,7 @@
 
 |Task|Command|     
 |----|----|     
-|Xem chi tiết thông tin về trạng thái `unit`|systemctl status `unit`|     
+|Xem chi tiết thông tin về trạng thái unit|systemctl status `unit`|     
 |Stop một service trong hệ thống đang chạy|systemctl stop `unit`|     
 |Start một service trong hệ thống đang chạy|systemctl start `unit`|    
 |Restart một service trong hệ thống đang chạy|systemctl restart `unit`|    
