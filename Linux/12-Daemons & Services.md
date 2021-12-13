@@ -53,7 +53,7 @@
 
 ![image](image/11.3.png) 
        
-- Lệnh `systemctl list-unit-files --type=service`: hiện thị tất cả các trạng thái của các unit files đã được cài đặt.    
+- Lệnh `systemctl list-unit-files --type=service`: hiện thị tất cả các trạng thái của các unit service đã được cài đặt.    
 
 ![image](image/11.1.png)      
 
