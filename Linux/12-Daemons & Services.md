@@ -57,7 +57,7 @@
 
 ![image](image/11.1.png)      
 
-- Các tùy chọn bật/tắt service trong systemcyl:   
+- Các tùy chọn bật/tắt service trong systemctl:   
     - `start`: bật service.  
     - `stop`: tắt service.   
     - `restart`: khởi động lại service.    
