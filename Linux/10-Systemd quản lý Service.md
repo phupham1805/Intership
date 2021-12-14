@@ -37,12 +37,12 @@
    - `.scope`: quy định không gian hoạt động.     
 
 *systemd cung cấp:*      
-- `systemctl`: dùng để quản lý units (service, socket, mount,...).
+- `systemctl`: là tool chính để quản lý systemd.
 - `journald`: dùng để quản lý log hoạt động của hệ thống (ghi log).     
 - `logind`: dùng để quản lý và theo dõi việc đăng nhập/đăng xuất của user.   
 - `networkd`: dùng để quản lý các kết nối mạng thông qua các cấu hình mạng.    
 - `timedated`: dùng để quản lý thời gian hệ thống hoặc thời gian mạng.    
-- `udev`: dùng để quản lý các thiết bị và fireware.           
+- `udev`: dùng để quản lý các thiết bị và fireware.             
 
 ### Unit Service trong Systemd  
 - Loại này sẽ được khởi động khi bật/tắt.      
