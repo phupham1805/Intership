@@ -29,7 +29,8 @@ Mục đích:
 - `/etc/ssh/sshd_config`: file cấu hình dịch vụ OpenSSH server.   
 - `/etc/ssh/ssh_config`: file cấu hình OpenSSH client.   
 - `~/.ssh/`: thư mục chứa nội dung cấu hình ssh của user client trên Linux.   
-- `~/.ssh/authorized_keys`: thư mục chứa thông tin các public key được user sử dụng để login vào hệ thống Linux.      
+- `~/.ssh/authorized_keys`: Khi là server, file này sẽ lưu khóa Public của Client.  
+- `~/.ssh/known_hosts`: Khi là Client, file này sẽ lưu khóa Public của Server.      
      - root    `/root/.ssh/authorized_keys`    
      - user(abc)    `/home/abc/.ssh/authorized_keys`       
 
