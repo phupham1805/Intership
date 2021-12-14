@@ -15,7 +15,7 @@
    - Nó cũng quản lý luôn cả hệ thống (system) cụ thể là các công việc:    
        - set tên máy (hostname).      
        - Cấu hình loopback interface.     
-       - Thiết lập và mount các filesystem như /sys/proc,...     
+       - Thiết lập và mount các filesystem như /sys/dev,...     
    - Systemd thường là process đầu tiên khi khởi động máy, còn được gọi là init system.      
 
 ![image](image/11.0.png)   
@@ -93,7 +93,7 @@
 <a name='2'></a>   
 ## Tham khảo  
 [1]https://freetuts.net/lenh-systemctl-trong-linux-3651.html
-
+[2]https://wiki.debian.org/systemd#Introduction   
 
 
 
