@@ -35,7 +35,7 @@
 ### 2. IPv4 Networking       
 - IPv4 là một số 32 bit được chia thành 4 octet, mỗi octet có 8 bit được ngăn cách nhau bởi dấu `.`.    
 - Địa chỉ mạng được chia làm 2 phần: phần network và phần host.     
-- Tất cả phần `Host` trong một subnet (mạng con) có thể nói chuyện trực tiếp lẫn nhau mà không cần thông qua rou      
+- Tất cả phần `Host` trong một subnet (mạng con) có thể nói chuyện trực tiếp lẫn nhau mà không cần thông qua router.         
 - Phần `Host` là duy nhất trên một subnet (mạng con).     
 - Để biết phần nào là phần `network`, phần nào là phần `host` trong địa chỉ IPv4 thì cần tới ` netmask`.        
 - Phần `host` tất cả là 0 thì được gọi là `network address` địa chỉ thấp nhất trên một subnet.        
