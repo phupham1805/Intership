@@ -114,6 +114,10 @@ VD: Tìm tất cả các tập tin, thư mục có tên vtt22
 ![image](image/14.5.png)   
 
 
+<a name='4'></a>     
+### Tham khảo   
+[1]https://news.cloud365.vn/lam-viec-voi-lenh-find-va-locate/    
+ 
 
 
 
