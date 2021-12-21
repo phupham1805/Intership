@@ -66,7 +66,7 @@ fdisk /dev/sdb
 
 - B3: Thực hiện mount tất cả những gì đã khai báo trong file `/etc/fstab`     
 ```   
-mount -a
+mount -a    
 ```     
 - Lệnh `unmount`: để thoát ổ đĩa ra một cách an toàn mà không làm hỏng dữ liệu lưu trữ trong đó.    
 
@@ -116,8 +116,9 @@ VD: Tìm tất cả các tập tin, thư mục có tên vtt22
 
 <a name='4'></a>     
 ### Tham khảo   
-[1]https://news.cloud365.vn/lam-viec-voi-lenh-find-va-locate/    
- 
+[1]https://news.cloud365.vn/lam-viec-voi-lenh-find-va-locate/   
+[2]https://datnt.work/mount-va-unmount-trong-linux/ 
+
 
 
 
