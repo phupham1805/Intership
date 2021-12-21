@@ -109,6 +109,15 @@ find / -mmin thời gian
 VD: Để tìm kiếm tất cả các file thay đổi trong 10 phút trước.     
 `find / -mmin 10`     
 
+- Lệnh `locate`: sẽ tìm nhanh và chi tiết hơn lệnh `find`. Lệnh sẽ trả về một danh sách tất cả các đường dẫn chứa nhóm ký tự đặc biệt.     
+- Cài đặt:    
+``` 
+yum install mlocate -y   
+updatedb 
+```    
+VD: Tìm tất cả các tập tin, thư mục có tên vtt22        
+
+![image](image/14.5.png)   
 
 
 
