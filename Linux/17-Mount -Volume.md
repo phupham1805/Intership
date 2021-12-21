@@ -85,12 +85,6 @@ mount -a
 - Lệnh ` find / -type [d,f,l,b] -name tên_thư_mục`: chỉ tìm kiếm thư mục or file, soft link, block device, sử dụng `-type d or f,l,b`.        
 
 ![image](image/14.3.png)       
-
-- Tìm file được truy cập trong N ngày qua    
-`find / -atime N`      
-VD: Tìm tệp đã truy cập trong 1 giờ qua.    
-`find / -amin -60`       
-
 - Tìm kiếm dựa trên kích thước, sử dụng `-size`     
 ```   
 find -size kích thước    
