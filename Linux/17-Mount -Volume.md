@@ -70,8 +70,8 @@ fdisk /dev/sdb
 |Mount Point|Khai báo thư mục mà volume sẽ mount|     
 |File System|Khai báo type File system|     
 |Mount Option|Tùy chọn Mount|      
-|Dump Support|Đây là việc chỉ định tắt bật tiện ích tạo các bản file system backups 1(bật) 0 (tắt)|     
-|Automatic Check|Cách thức kiểm tra filesystem của hệ thống trong quá trình booting, 1(sẽ mặc định check đầu tiên nếu là root filesystem), 2(nếu không phải root file system thì sẽ thực hiện check trong quá trình booting ), 0 (không cần check file system).     
+|Dump Support|Đây là việc chỉ định tắt bật tiện ích tạo các bản file system backups 1(bật) 0 (tắt)|       
+|Automatic Check|Cách thức kiểm tra filesystem của hệ thống trong quá trình booting, 1(sẽ mặc định check đầu tiên nếu là root filesystem), 2(nếu không phải root file system thì sẽ thực hiện check trong quá trình booting ), 0 (không cần check file system).|        
 
 
 - B3: Thực hiện mount tất cả những gì đã khai báo trong file `/etc/fstab`     
