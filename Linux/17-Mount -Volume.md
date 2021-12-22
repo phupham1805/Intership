@@ -62,7 +62,17 @@ fdisk /dev/sdb
 ![image](image/14.0.png)     
 - B2: Cấu hình file `/etc/fstab` thêm vào dòng cuối      
 
-![image](image/14.1.png)     
+![image](image/14.1.png)          
+
+|Field|Description|   
+|----|----|    
+|Device|Khai báo thiết bị sẽ được mount. Có thể khai báo dạng tên thiết bị `/dev/sdb`, `UUID` hoặc `LABEL`|     
+|Mount Point|Khai báo thư mục mà volume sẽ mount|     
+|File System|Khai báo type File system|     
+|Mount Option|Tùy chọn Mount|      
+|Dump Support|Đây là việc chỉ định tắt bật tiện ích tạo các bản file system backups 1(bật) 0 (tắt)|     
+|Automatic Check|Cách thức kiểm tra filesystem của hệ thống trong quá trình booting, 1(sẽ mặc định check đầu tiên nếu là root filesystem), 2(nếu không phải root file system thì sẽ thực hiện check trong quá trình booting ), 0 (không cần check file system).     
+
 
 - B3: Thực hiện mount tất cả những gì đã khai báo trong file `/etc/fstab`     
 ```   
