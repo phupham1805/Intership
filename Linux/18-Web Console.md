@@ -1,7 +1,7 @@
 # Mục lục   
 [1. Web Console](#1)   
 
-## [Tham khảo](#3)      
+## [Tham khảo](#2)      
 -----   
 
 <a name='1'></a>     
@@ -59,6 +59,8 @@ sudo firewall-cmd --reload
 
 ![image](image/15.4.png)    
 
-
+<a name='2'></a>  
+### Tham khảo    
+[1]https://www.tecmint.com/cockpit-monitor-multiple-linux-servers-via-web-browser/
 
 
