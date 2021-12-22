@@ -6,7 +6,12 @@
 
 <a name='1'></a>     
 ### 1. Web Console     
-- Web Console là công cụ xử lý sự cố hữu ích hơn khi làm việc với phiên terminal.     
+
+- Web Console là công cụ xử lý sự cố hữu ích hơn khi làm việc với phiên terminal.         
+- Cài Cockpit trên Fedora và Centos, chạy lệnh:    
+```  
+yum install cockpit   
+```   
 - Để mở Web Console ta phải kích hoạt enable và start service `cockpit.socket` khi chạy một web server, bằng cách:    
 ```    
 sudo systemctl enable --now cockpit.socket    
