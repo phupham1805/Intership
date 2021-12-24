@@ -64,3 +64,4 @@ sudo firewall-cmd --reload
 [1]https://www.tecmint.com/cockpit-monitor-multiple-linux-servers-via-web-browser/
 
 
+
