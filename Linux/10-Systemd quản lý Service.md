@@ -92,7 +92,7 @@
 
 <a name='2'></a>   
 ## Tham khảo  
-[1]https://freetuts.net/lenh-systemctl-trong-linux-3651.html
+[1]https://freetuts.net/lenh-systemctl-trong-linux-3651.html     
 [2]https://wiki.debian.org/systemd#Introduction   
 
 
