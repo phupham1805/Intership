@@ -117,7 +117,7 @@ VD: Để tìm kiếm tất cả các file thay đổi trong 10 phút trước.
 - Cài đặt:    
 ``` 
 yum install mlocate -y   
-updatedb 
+updatedb    
 ```    
 VD: Tìm tất cả các tập tin, thư mục có tên vtt22        
 
