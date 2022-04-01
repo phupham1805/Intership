@@ -1,0 +1,42 @@
+# Mục lục   
+   
+[1. Khái niệm cơ bản](#2)   
+[2. Switch là gì?](#1)   
+[3. Commands](#3)          
+
+## [Tham khảo](#5)      
+
+-----   
+
+<a name='1'></a>   
+
+***Hiện tượng Collision domain là hiện tượng mà nếu hai thiết bị đồng thời gửi tín hiệu điện vào đường truyền thì các tín hiệu của hai thiết bị sẽ gây nhiễu cho nhau dẫn đến lỗi bit và mất frame.***        
+
+- Để giảm thiểu số lượng collision có thể xảy ra, các thiết bị kết nối đến một collision domain phải chạy một giải thuật có tên gọi là CSMA/CD (Carrier Sense Multiple Access with Collision Detection).        
+
+<a name='1'></a>  
+
+## 1. Khái niệm cơ bản
+- `Singplex`: Bên gửi chỉ có gửi dữ liệu cho bên nhận.    
+    -  VD: bàn phím và màn hình.  
+- `Half-Duplex`: Bên gửi có thể gửi, nhận dữ liệu, nhưng chỉ thực hiện một hành động vào một thời điểm.       
+    - VD: bộ đàm     
+- `Full-Duplex`: Bên gửi có thể gửi và nhận dữ liệu đồng thời.      
+    - VD: điện thoại      
+
+![image](image3/transfer.png)       
+
+- `Unicast`: Gói tin gửi đi từ một nguồn và nhận chỉ một đích. (một host sẽ nhận tất cả dữ liệu truyền từ host nào đó).     
+- `Broadcast`: Gửi tin gửi đi từ một nguồn đến tất cả các đích có kết nối trực tiếp của nó. (trong cùng một mạng).       
+- `Multicast`: Truyền đa hướng, gói tin gửi từ một điểm tới một tập hợp các điểm khác còn lại, tức là một nguồn và nhiều đích (trong nhóm Multicast).        
+
+
+![image](image3/transfer1.png)       
+- Protocol là tập hợp tất các các quy tắc, quy ước để đảm bảo cho các máy tính trên mạng có thể giao tiếp với nhau.
+
+<a name='2'></a>   
+
+## 2. Switch là gì ?     
+- Swith sẽ giải quyết vấn đề mở rộng kích thước của một mạng LAN, làm giảm thiểu kích thước các collision domain và tăng thêm băng thông đấu nối cho các thiết bị đầu cuối.       
+- Swith là thiết bị lớp 2 thực hiện chức năng chuyển tiếp frame tốc độ cao dựa vào địa chỉ MAC của frame.     
+
