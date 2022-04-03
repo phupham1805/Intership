@@ -40,3 +40,19 @@
 - Swith sẽ giải quyết vấn đề mở rộng kích thước của một mạng LAN, làm giảm thiểu kích thước các collision domain và tăng thêm băng thông đấu nối cho các thiết bị đầu cuối.       
 - Swith là thiết bị lớp 2 thực hiện chức năng chuyển tiếp frame tốc độ cao dựa vào địa chỉ MAC của frame.     
 
+### Hoạt động chuyển mạch của Ethernet Swith    
+
+- Hoạt động: Khi frame đi vào một cổng switch, switch sẽ thực hiện chuyển tiếp frame này ra khỏi một cổng thích hợp để đi đến được thiết bị nhận.    
+- Để thực hiện được việc đó thì switch dựa vào bảng thông tin đó là bảng địa chỉ MAC (MAC Address Table).    
+- Khi host A muốn gửi frame cho host B, nó sẽ đóng frame có `source MAC` của host A và `Destination MAC` của host B. Khi frame đi đến switch, switch sẽ nhìn vào `Destination MAC` của `frame header` và thực hiện tra cứu bảng địa chỉ MAC để xem MAC này nằm ở cổng nào của switch rồi gửi frame qua cổng đó.   
+
+- Học địa chỉ MAC vào bảng MAC: Switch thực hiện học các địa chỉ MAC của các thiết bị đầu cuối vào bảng MAC từ source MAC của Ethernet frame khi frame đi vào một cổng nào đó của switch.    
+
+- Chuyển tiếp (forward) frame ra một cổng thích hợp: dựa vào destination MAC của frame     
+   - Nếu destination MAC của frame là một địa chỉ unicast MAC có sẵn, switch chỉ cần chuyển frame ra cổng tương thích.  
+   - Nếu destination MAC của frame là một địa chỉ unicast MAC không có trong bảng MAC và địa chỉ broadcast, switch sẽ thực hiện nhân bản (flood) frame này ra tất cả các cổng trừ cổng nhận vào.   
+
+<a name='3'></a>   
+
+## 3. Command   
+

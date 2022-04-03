@@ -17,4 +17,3 @@
 - Ansible Engine thì được hỗ trợ cung cấp xây dựng từ dự án community Ansible.    
 - Ansible Tower thì là một framwork enterprise để điều khiển, bảo mật, quản lý và mở rộng `automation Ansible` của bạn. (community or engine) với 1 UI (User Interface) và API (Application Programing Interface).     
 
-
