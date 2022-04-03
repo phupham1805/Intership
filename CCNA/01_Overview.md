@@ -95,6 +95,14 @@
    - `/24` là prefix-length.   
    - `Prefix-length` là số bit mạng trong một địa chỉ IP       
 
+### Default gateway   
+- Default gateway là địa chỉ IP của router mà kết nối đến mạng chứa máy nguồn.      
+- Khi một máy tính muốn truyền thông đến máy tính khác mạng, thì nó phải gửi gói tin ra default gateway.    
+- Tất cả máy tính có trong cùng một mạng có cùng một địa chỉ default gateway.     
+- Đối với hai máy tính trong cùng một mạng thì việc gửi gói tin cho nhau là điều vô cùng dễ dàng. Nhưng đối với các máy tính có địa chỉ IP khác nhau thì khi đó bạn cần phải có sự hỗ trợ bởi router và trao đổi thông tin qua `default gateway`.    
+
+- Lệnh `ping`: dùng để kiểm tra kết nối mạng của 2 máy tính.  
+- Lệnh `tracert`: dùng để kiểm tra đường đi của các gói tin của lệnh `ping` (tìm đường đi đến đích) 
 
 
 

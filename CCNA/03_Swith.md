@@ -1,8 +1,7 @@
 # Mục lục   
    
 [1. Khái niệm cơ bản](#2)   
-[2. Switch là gì?](#1)   
-[3. Commands](#3)          
+[2. Switch là gì?](#1)            
 
 ## [Tham khảo](#5)      
 
@@ -44,7 +43,7 @@
 
 - Hoạt động: Khi frame đi vào một cổng switch, switch sẽ thực hiện chuyển tiếp frame này ra khỏi một cổng thích hợp để đi đến được thiết bị nhận.    
 - Để thực hiện được việc đó thì switch dựa vào bảng thông tin đó là bảng địa chỉ MAC (MAC Address Table).    
-- Khi host A muốn gửi frame cho host B, nó sẽ đóng frame có `source MAC` của host A và `Destination MAC` của host B. Khi frame đi đến switch, switch sẽ nhìn vào `Destination MAC` của `frame header` và thực hiện tra cứu bảng địa chỉ MAC để xem MAC này nằm ở cổng nào của switch rồi gửi frame qua cổng đó.   
+- Khi host A muốn gửi frame cho host B, nó sẽ đóng gói dữ liệu thành frame có `source MAC` của host A và `Destination MAC` của host B. Khi frame đi đến switch, switch sẽ nhìn vào `Destination MAC` của `frame header` và thực hiện tra cứu bảng địa chỉ MAC để xem MAC này nằm ở cổng nào của switch rồi gửi frame qua cổng đó.   
 
 - Học địa chỉ MAC vào bảng MAC: Switch thực hiện học các địa chỉ MAC của các thiết bị đầu cuối vào bảng MAC từ source MAC của Ethernet frame khi frame đi vào một cổng nào đó của switch.    
 
@@ -54,5 +53,4 @@
 
 <a name='3'></a>   
 
-## 3. Command   
-
+## Tham khảo   
