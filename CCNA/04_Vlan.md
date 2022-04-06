@@ -88,7 +88,9 @@ Switch(config-if)#switchport access vlan 30
 
 - Việc trunking ngoài ý muốn như vậy sẽ gây ra những mối nguy cơ về bảo mật.    
 
-### VTP - VLAN Trunking Protocol    
+<a name='4'></a>    
+
+## 4.VTP - VLAN Trunking Protocol    
 - `VTP(VLAN Trunking Protocol)` là giao thức dùng để đồng bộ cấu hình VLAN với nhau mà không cần có sự can thiệp của người quản trị.     
 - VTP sử dụng các đường trunk layer 2 để trao đổi thông tin. Để các switch chạy được VTP thì các đường trunk phải được thiết lập giữa chúng.     
 - `VTP domain`: Các switch thuộc cùng một domain mới có thể trao đổi thông tin VTP với nhau.     
@@ -120,7 +122,81 @@ Switch#show vtp status
 Switch#show vtp password  
 ```
 
-<a name='1'></a>   
+<a name='5'></a>   
+
+## 5.STP (Spanning Tree Protocol)     
+- Nếu một mạng doanh nghiệp chỉ dùng một router gateway đi Internet thì sẽ có khả năng là router này xảy ra sự cố thì cả một hệ thống mạng doanh nghiệp sẽ bị gián đoạn. Chính vì thế ta phải set up cho router tuyến đường dự phòng để có thể tránh gây gián đoạn mạng trong những vị trí quan trọng của sơ đồi mạng.    
+- Giao thức `STP của switch layer 2`: để tránh hiện tượng `loop` cần phải khóa tất cả các vòng loop xuất hiện trên mạng chuyển mạch.  
+     - STP sẽ tự động trao đổi thông tin, tính toán và khóa các vòng loop trong sơ đồ.    
+- Tuy nhiên, khi xảy ra sự cố các tuyến đường dự phòng sẽ được mở để đảm bảo mạng không bị gián đoạn.       
+
+### Cisco Per - VLAN STP (pVST+)    
+- `pVST+`: mỗi VLAN sẽ chạy một tiến trình STP để có thể thực hiện cân bằng tải giữa các VLAN từ đó sử dụng đường truyền một cách tối ưu.    
+
+### Configuration STP
+
+|Command|Detail|   
+|----|----|  
+|SW(config)#[no] spanning-tree vlan `vlan-id`|Disable/Enable STP trên VLAN. Default STP enable trên mọi VLAN|      
+|SW(config)#spanning-tree vlan `vlan-id` root {primary/secondary} |`Primary`: switch trở thành root switch cho VLAN vlan-id.`Secondary`: switch sẽ trở thành tuyến đường dự phòng cho root switch trên VLAN vlan-id|     
+|SW(config)#spanning-tree vlan `vlan-id` cost cost|Lưu ý cost priority phải là bội số của 4096|       
+|SW(config)#spanning-tree vlan `vlan-id` port-priority `priority`|Lưu ý cost priority phải là bội số của 16|    
+|SW(config)#spanning-tree vlan `vlan-id` hello-time `seconds` SW(config)#spanning-tree vlan `vlan-id` forward-time `seconds` SW(config)#spanning-tree vlan `vlan-id` max-age `seconds`|Hiệu chỉnh timer của STP|    
+|SW(config)#spanning-tree mode {pvst / rapid-pvst/ mst}| Default cisco active mode pVST+|   
+|SW(config)#show spanning-tree [vlan vlan-id]|Check inf active basic STP|    
+
+<a name='6'></a>   
+
+## 6.Định tuyến giữa các VLAN
+
+- Mục đích: Để các host thuộc các VLAN khác nhau có thể trao đổi thông tin với nhau thì cần phải định tuyến giữa các VLAN    
+- Có 2 phương pháp định tuyến VLAN: sử dụng `router` và sử dụng `switch layer 3`     
+- Cấu hình để cổng F0/1 của switch là cổng trunk    
+```    
+SW(config)#int f0/1   
+SW(config)#sw mod trunk 
+SW(config)#sw trunk allowed vlan all   
+```  
+***Note:Lệnh `sw trunk encapsulation dot1q` không có trên dòng switch layer2 như 2950, 2960***   
+
+### Trên Router
+```     
+Router(config)#int f0/0 
+Router(config-if)#no shutdown 
+Router(config-if)#ip add 192.168.1.1 255.255.255.0
+Router(config)#int f0/0.2 
+Router(config-subif)#encapsulation dot1q 2
+Router(config-subif)#ip add 192.168.2.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#int f0/0.3 
+Router(config-subif)#encapsulation dot1q 3
+Router(config-subif)#ip add 192.168.3.1 255.255.255.0
+Router(config-subif)#exit
+```   
+
+### Route Switch layer 3    
+- Switch layer 3 ngoài khả năng như switch layer 2 thì còn có thể định tuyến và chuyển mạch lớp 3 dựa vào địa chỉ IP của các gói tin.     
+- Có thể cấu hình định tuyến VLAN trên Switch layer 3 thông qua các SVI - Switched Virtual Interface.   
+- SVI được sử dụng để kết nối đến các VLAN, cung cấp gateway đến các host thuộc VLAN này.     
+- Định tuyến trực tiếp trên các switch    
+
+```  
+Bật chế độ định tuyến trên switch 
+SW(config)#ip routing   
+Cấu hình SVI (interface VLAN) tương ứng với từng VLAN      
+SW(config)#int VLAN 1
+SW(config-if)#ip add 192.168.1.1 255.255.255.0 
+SW(config-if)#no shutdown  
+SW(config)#int VLAN 2
+SW(config-if)#ip add 192.168.2.1 255.255.255.0 
+SW(config-if)#no shutdown
+SW(config)#int VLAN 3
+SW(config-if)#ip add 192.168.3.1 255.255.255.0 
+SW(config-if)#no shutdown
+```  
+
+
+<a name='4'></a>   
 
 ### LAB  
 

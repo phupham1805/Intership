@@ -28,3 +28,13 @@ Router(config-if)#exit
    - `Router#copy running-config startup-config`    
    - `Router#write memory`      
    
+### Router Security    
+
+```   
+Router(config)#enable secret cisco123   
+Router(config)#do show running-config    
+
+```     
+
+![image](image1/EncryptionRouter.png)    
+
