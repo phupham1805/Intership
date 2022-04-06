@@ -1,12 +1,16 @@
 # Mục lục   
 [1. VLAN(Virtual Lan Area Network)](#1)      
-[2. ](#2)    
-
-## [Tham khảo](#3)     
+[2. Trunking ](#2)      
+[3. VTP - VLAN Trunking Protocol ](#3)      
+[4. STP - Spanning Tree Protocol ](#4)    
+[5. Định tuyến giữa các VLAN](#5)   
+[6. 6.Etherchannel](#6)    
+    
 
 ----    
 
-<a name='1'></a>    
+<a name='1'></a>      
+
 ## 1. VLAN (Virtual Local Area Network) là gì ?     
 - VLAN là một mạng LAN ảo. Kỹ thuật này cho phép tạo lập các mạng LAN độc lập một cách logic trên cùng một kiến trúc hạ tầng vật lý.         
 - VLAN là một broadcast-domain được tạo bởi các switch. Bình thường thì router đóng vai trò tạo ra broadcast-domain. Đối với VLAN switch có thể tạo ra broadcast-domain đó.     
@@ -88,9 +92,9 @@ Switch(config-if)#switchport access vlan 30
 
 - Việc trunking ngoài ý muốn như vậy sẽ gây ra những mối nguy cơ về bảo mật.    
 
-<a name='4'></a>    
+<a name='3'></a>    
 
-## 4.VTP - VLAN Trunking Protocol    
+## 3.VTP - VLAN Trunking Protocol    
 - `VTP(VLAN Trunking Protocol)` là giao thức dùng để đồng bộ cấu hình VLAN với nhau mà không cần có sự can thiệp của người quản trị.     
 - VTP sử dụng các đường trunk layer 2 để trao đổi thông tin. Để các switch chạy được VTP thì các đường trunk phải được thiết lập giữa chúng.     
 - `VTP domain`: Các switch thuộc cùng một domain mới có thể trao đổi thông tin VTP với nhau.     
@@ -122,9 +126,9 @@ Switch#show vtp status
 Switch#show vtp password  
 ```
 
-<a name='5'></a>   
+<a name='4'></a>   
 
-## 5.STP (Spanning Tree Protocol)     
+## 4.STP (Spanning Tree Protocol)     
 - Nếu một mạng doanh nghiệp chỉ dùng một router gateway đi Internet thì sẽ có khả năng là router này xảy ra sự cố thì cả một hệ thống mạng doanh nghiệp sẽ bị gián đoạn. Chính vì thế ta phải set up cho router tuyến đường dự phòng để có thể tránh gây gián đoạn mạng trong những vị trí quan trọng của sơ đồi mạng.    
 - Giao thức `STP của switch layer 2`: để tránh hiện tượng `loop` cần phải khóa tất cả các vòng loop xuất hiện trên mạng chuyển mạch.  
      - STP sẽ tự động trao đổi thông tin, tính toán và khóa các vòng loop trong sơ đồ.    
@@ -145,9 +149,9 @@ Switch#show vtp password
 |SW(config)#spanning-tree mode {pvst / rapid-pvst/ mst}| Default cisco active mode pVST+|   
 |SW(config)#show spanning-tree [vlan vlan-id]|Check inf active basic STP|    
 
-<a name='6'></a>   
+<a name='5'></a>   
 
-## 6.Định tuyến giữa các VLAN
+## 5.Định tuyến giữa các VLAN
 
 - Mục đích: Để các host thuộc các VLAN khác nhau có thể trao đổi thông tin với nhau thì cần phải định tuyến giữa các VLAN    
 - Có 2 phương pháp định tuyến VLAN: sử dụng `router` và sử dụng `switch layer 3`     
@@ -194,11 +198,89 @@ SW(config)#int VLAN 3
 SW(config-if)#ip add 192.168.3.1 255.255.255.0 
 SW(config-if)#no shutdown
 ```  
+<a name='6'></a>   
+
+## 6.Etherchannel   
+- Để `tăng băng thông` đấu nối giữa các switch, ta cần sử dụng nhiều đường nối song song giữa các switch.
+- Tuy nhiên, việc đấu nối song song như vậy sẽ hình thành `loop` và giao thức STP sẽ khóa các loop này và chỉ còn một đường duy nhất giữa hai switch.    
+- `Etherchannel`: là giải pháp cho vấn đề trên, một switch sẽ thực hiện `bó` nhiều đường đấu nối với nhau thành một đường duy nhất. Từ đó tăng băng thông đấu nối cũng như tuyến đường dự phòng giữa các switch.    
+
+### Đặc điểm  
+- Etherchannel thì ` bó ` được tối đa 8 cổng physical cùng loại.  
+- Các cổng bó phải thống nhất về:   
+    - Trunking mode: chuẩn trunking (dot1q or ISL), mode trunking (On/Desirable/Auto), nếu không phải là mode Access.    
+    - Cấu hình VLAN: Nếu là cổng trunk, Etherchannel phải cùng qua một danh sách VLAN và thống nhất về `native` VLAN. Nếu là cổng access thì các cổng thành phần phải thuộc cùng về một VLAN.   
+    - Speed và Duplex: các cổng phải thống nhất với nhau về speed và duplex.    
+    - Thống nhất về setup STP: Port cost, Port - priority,...    
+
+### Cấu hình tĩnh Etherchannel    
+
+```   
+Trên SW1  
+SW1(config)#int range f0/1-2
+SW1(config-if-range)#channel-group 12 mode on   
+SW1(config-if-range)#exit   
+
+Trên SW2
+SW2(config)#int range f0/1-2
+SW2(config-if-range)#channel-group 12 mode on   
+SW2(config-if-range)#exit   
+
+Kiểm tra trạng thái    
+SW1#show etherchannel summary     
+```     
+
+### Cấu hình Etherchannel bằng Protocol    
+- Có 2 giao thức chính đó là:   
+    - PAgP_Port Aggregation Protocol: là giao thức của Cisco.  
+    - LACP_Link Aggregation Control Protocol: là giao thức chuẩn quốc tế của IEEE.      
+
+- Cả hai giao thức đều có hai mode active: ` Chủ động ` và ` Bị động `    
+   - Với PAgP: mode Chủ động là `Desirable`, còn mode Bị động là `Auto`    
+   - Với LACP: mode Chủ động là `Active`, còn mode Bị động là `Passsive`     
+
+***Note:Để Etherchannel được thiết lập thì ít nhất một trong hai đầu phải hoạt động ở mode Chủ động***    
+
+```    
+Cấu hình Etherchannel PAgP   
+
+SW1(config-if)#channel-protocol pagp   
+SW1(config-if)#channel-group số_hiệu_kênh mode {desirable/auto}   
+
+Cấu hình Etherchannel LACP   
+
+SW1(config-if)#channel-protocol LACP  
+SW1(config-if)#channel-group số_hiệu_kênh mode {active/passive}   
+```   
+### LAB   
+
+![image](image1/Etherchannel.png)   
+  
+
+````          
+SW1  
+interface range f0/1-2 
+channel-protocol lacp 
+channel-group 1 mode active  
+SW2  
+int range f0/1-2
+channel-protocol lacp 
+channel-group 1 mode passive   
+SW2  
+int range f0/3-4  
+channel-protocol pagp 
+channel-group 2 mode desirable 
+SW3 
+int range f0/3-4
+channel-protocol pagp 
+channel-group 2 mode auto        
+````    
 
 
-<a name='4'></a>   
 
-### LAB  
+<a name='7'></a>   
+
+## LAB  
 
 ![image](image1/LabVlan.png)   
 
