@@ -4,8 +4,8 @@
 [3. VTP - VLAN Trunking Protocol ](#3)      
 [4. STP - Spanning Tree Protocol ](#4)    
 [5. Định tuyến giữa các VLAN](#5)   
-[6. 6.Etherchannel](#6)    
-    
+[6. Etherchannel](#6)    
+[7. Port Security](#7)      
 
 ----    
 
@@ -275,10 +275,60 @@ int range f0/3-4
 channel-protocol pagp 
 channel-group 2 mode auto        
 ````    
-
-
-
 <a name='7'></a>   
+
+### 7.Port Security    
+
+- MAC flooding là một kỹ thuật tấn công rất phổ biến trong mạng LAN    
+- Mục đích: giúp cho kẻ tấn công có thể nghe lén, thu thập thông tin trong mạng.    
+- Khi kẻ tấn công gửi source MAC giả vào switch thì khi đó đến một limited nào đó bảng MAC sẽ bị đầy. Và khi một cổng nào đó của switch gửi frame lên thì bảng MAC đang chứa đầy MAC giả tạo nên nó sẽ flooding ra tất cả các cổng trừ cổng nó nhận vào. Và rồi attacker sẽ biết được thông tin.   
+- `Port Security` là một tính năng bảo mật layer 2 trên switch, thường được triển khai trên `access switch` sẽ giới hạn số lượng địa chỉ MAC được học trên một cổng.   
+
+### Command   
+
+```     
+SW(config-if)#switchport port-security   
+SW(config-if)#switchport mode access 
+SW(config-if)#switchport port-security maxiumsố_lượng    
+SW(config-if)#switchport port-security mac-address   
+
+Chỉ định hành động của switch khi xảy ra vi phạm   
+SW(config-if)#switch port-security violation {shutdown|restrict|protect}    
+ 
+```   
+- `shutdown` đưa vào trạng thái err-disable và chuyển hắn vào status down.  
+- `restrict` đưa cổng vào status (up/up) frame vi phạm bị loại bỏ và gửi thông điệp cảnh báo.  
+- `protect` cổng vẫn active nhưng không gửi thông điệp cảnh báo      
+
+### Khôi phục   
+
+```    
+SW(config)#errdisable recovery cause psecure-violation    
+SW(config)#errdisable recovery intervalseconds    
+```   
+
+- `seconds` là khoảng thời gian tính bằng giây switch sẽ mở lại cổng được bật `port security`.   
+
+### Check Status  
+ 
+```  
+SW#show port-security   
+SW#show port-security interfacetên_cổng  
+SW#show port-security address    
+```    
+### VD    
+
+```   
+SW(config)#int f0/1 
+SW(config-if)#shutdown
+SW(config-if)#switchport mode access  
+SW(config-if)#switchport port-security  
+SW(config-if)#switchport port-security maxium 1  
+SW(config-if)#switchport port-security mac-address 0000.1111.222   
+SW(config-if)#switchport port-security violation shutdown  
+SW(config-if)#no shutdown       
+```  
+<a name='8'></a>   
 
 ## LAB  
 
