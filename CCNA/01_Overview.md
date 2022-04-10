@@ -104,6 +104,8 @@
 - Lệnh `ping`: dùng để kiểm tra kết nối mạng của 2 máy tính.  
 - Lệnh `tracert`: dùng để kiểm tra đường đi của các gói tin của lệnh `ping` (tìm đường đi đến đích) 
 
+### Subnet Mask   
 
+![image](image1/Subnet%20Mask.png) 
 
 
