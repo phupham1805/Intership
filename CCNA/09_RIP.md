@@ -5,7 +5,7 @@
 - `Metric` trong RIP được tính thep hop-count, là số nằm giữa router đang xét và đích đến. Với RIP  `Metric` maxium là 15. Nếu mạng đích đến cách router đang xét 16 router trở lên thì nó không thể đi đến được.    
 - RIP được đóng gói vào các `datagram UDP`, sử dụng source port và destination port là `512`.    
 - Cách thức hoạt động của RIP sẽ gây ra hiện tượng loop vì thế sẽ có một số quy tắc chống loop và định thời timer được đưa ra. Các quy tắc và timer này làm giảm tốc độ hội tụ của RIP.    
-- AD của RIP là 120.    
+- `AD` của RIP là `120.`      
 
 ### Các quy tắc chống loop    
 ### Split-horizon       
@@ -57,3 +57,11 @@ R(config-router)#network major_network
 ``` 
 - Khi `network` mạng nào thì cổng có địa chỉ thuộc mạng ấy sẽ tham gia RIP, router sẽ thực hiện gửi/nhận các bản tin cập nhật định tuyến trên cổng này. Mạng của cổng tham gia RIP sẽ được broadcast đi trong các bản tin định tuyến.   
    
+- Tính năng `auto-summary`: tự động bật lên với RIP một cách mặc định.   
+    - Mục đích: chuyển tất cả các subnet thành major network khi quảng bá nó qua biến giới một major network khác.      
+    - Tác hại: Thiếu đi sự chính xác trong định tuyến và nhiều TH có thể dữ liệu không đi được đến đích.       
+    - Lời khuyên: Nên tắt tính năng `auto-summary` đi để hiện thị đúng subnet của nó.    
+
+- Mạng gián đoạn `discontiguous network` là trên topology có một major network bị chia cách bởi một major network khác.    
+- `VLSM_Variable Length Subnet Mask` là tồn tại nhiều subnet của cùng một major network với các giá trị prefix-length khác nhau.       
+
