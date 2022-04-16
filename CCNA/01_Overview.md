@@ -109,3 +109,20 @@
 ![image](image1/Subnet%20Mask.png) 
 
 
+### Wildcard mask  
+- Tác dụng: dùng để kiểm tra những IP nào sẽ được chọn để áp dụng vào cấu hình cần đặt .  
+- Theo nguyên tắc: bit `0` kiểm tra, bit `1` không kiểm tra.   
+
+- VD: IP_192.168.1.32 và Wildcard mask là 0.0.0.5     
+`192.168.1.32`: 11000000.10101000.00000001.00010`000`      
+`0.0.0.5`: 00000000.00000000.00000000.00000`101`    
+
+- Bit nào trong IP tương ứng với bit 0 của Wildcard Mask thì sẽ được giữ lại, còn bit nào trên IP tương ứng với bit 1 của Wildcard Mask thì có thể thay đổi 1 hoặc 0. Vậy ta có những IP sau thỏa mãn wildcard mask là    
+```
+192.168.1.00010001 (192.168.1.33)       
+192.168.1.00010100  (192.168.1.36)      
+192.168.1.00010101  (192.168.1.37)    
+192.168.1.00010000   (192.168.1.32)   
+```     
+
+

@@ -163,4 +163,4 @@ R2(config-if)#ip ospf cost 1
 
 R2(config)#int f0/0      
 R2(config-if)#ip ospf cost 2    
-```  
+```  s

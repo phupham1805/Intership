@@ -49,3 +49,7 @@ R(config-router)#
 |Fast Ethernet|100000|10|  
 |Serial|1544|2000|    
 
+***Lưu ý: Các giao thức Distance-Vector mặc định có chế độ "Auto-Summary": tự động chuyển các subnet về mạng major khi quảng bá qua biên giới của một major khác. Điều này dẫn đến những sai lệnh định tuyến và có thể khiến một số subnet không đi đến được. Để khắc phục, có thể sử dụng câu lệnh `no auto-summary`***     
+- Thêm `wildcard mask` để lấy chính xác subnet tham gia định tuyến.    
+
+### Commands   
