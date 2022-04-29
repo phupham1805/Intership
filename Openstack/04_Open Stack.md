@@ -33,7 +33,7 @@
 - `Keystone (Identity Server)`: dùng để quản lý xác thực cho user và projects.  
 - `Openstack Storage`   
    - `Object Storage (Swift)`: Swift cung cấp khả năng lưu trữ dựa trên các cấu trúc phân tán (distributed architecture), giúp tăng cao khả năng dự phòng (redundancy), mở rộng/thu gọn (scalability) và hiệu năng (performance).       
-   - `Block Storage (Cinder)`: cho phép bạn thêm và quản lý block-level storage vào VM. Dịch vụ này tương ứng với Amazon EC2 Elastic block Storage - EBS.      
+   - `Block Storage (Cinder)`: cho phép bạn thêm và quản lý block-level storage vào VM. Dịch vụ này tương ứng với Amazon EC2, Elastic Block Storage - EBS.      
 - `Openstack Network (Neutron)`: là thành phần quản lý network cho máy ảo.   
    - Cung cấp chức năng network as a service.   
    - Đây là hệ thống có các tính chất pluggable, scalable và API-driven.   
@@ -44,7 +44,7 @@
       - Cung cấp và tự động phát tài nguyên cloud   
       - Việc thiết kế có thể mở rộng giúp dễ dàng thêm và các sản phẩm cũng như dịch vụ ngoài như billing, monitoring và các công cụ giám sát khác.      
 
-<a name='3'></a>   
+<a name='3'></a>    
 
 ## 3. Lợi ích và hạn chế khi sử dụng Openstack   
 ***Lợi ích***   
