@@ -1,10 +1,11 @@
 # Mục lục    
 
 [1. Ansible là gì ?](#1)   
-[2. Một số thuật ngữ cơ bản ](#2)     
-[3. Cài đặt Ansible](#3)      
+[2. Một số thuật ngữ cơ bản ](#2)  
+[3. Ứng dụng của Ansible](#3)     
+[4. Cài đặt Ansible](#4)      
 
-## [Tham khảo](#4)    
+## [Tham khảo](#5)    
 
 ----    
 
@@ -19,7 +20,7 @@
 - Vấn đề: Khi làm việc với server thì có cần lo nhiều thứ để setup: `crontab, update, phần mềm mới, deploy ứng dụng, chỉnh sửa file cấu hình,...   
 - Tool automation chính là giải pháp cho những vấn đề này. Có rất nhiều tool được sử dụng hiện nay như là: `Chef, Puppet, Ansible, SaltStack, CFEngine, StackStorm,...`      
 - Ansible Engine thì được hỗ trợ cung cấp xây dựng từ dự án community Ansible.      
-- Ansible Tower thì là một framework enterprise để điều khiển, bảo mật, quản lý và mở rộng `automation Ansible` của bạn. (community or  engine) với 1 UI (User Interface) và API (Application Programing Interface).       
+- Ansible Tower thì là một framework enterprise để `điều khiển, bảo mật, quản lý và mở rộng` `automation Ansible` của bạn. (community or  engine) với 1 UI (User Interface) và API (Application Programing Interface).       
 
 ### Ansible phân loại thành 2 kiểu server      
    ***Controlling machine và nodes***       
@@ -27,7 +28,9 @@
 - Controlling Machine: nơi cài đặt Ansible.         
 - Nodes được quản lý bởi `controlling machine` qua SSH. Vị trí của nodes được chỉ định bởi controlling machine thông qua `Inventory` của nó.   
 - Ansible có thể xử lý 100 nodes từ một hệ thống đơn qua kết nối SSH.   
-- Được xử lý, thực thi và vận hành toàn bộ bởi lệnh `ansible`. Một vài TH, bạn yêu cầu để thực thi đa lệnh cho deployment, bạn có thể build playbook.     
+- Được xử lý, thực thi và vận hành toàn bộ bởi lệnh `ansible`. Một vài TH, bạn yêu cầu để thực thi đa lệnh cho deployment, bạn có thể build playbook.       
+
+![image](image3/NodeControll.png)    
 
 <a name='2'></a>  
 
@@ -40,11 +43,20 @@
 - `Role`: Là một tập playbook được định nghĩa sẵn để thực thi 1 tác vụ nhất định.       
 - `Play`: là quá trình thực thi của 1 playbook từ đầu đến cuối.          
 - `Facts`: Thông tin của những máy được Ansible điều khiển, cụ thể là thông tin về OS, network, system,...           
-- `Handlers`: Dùng để kích hoạt các thay đổi của dịch vụ như start, stop service.      
+- `Handlers`: Dùng để kích hoạt các thay đổi của dịch vụ như start, stop service.        
+   
 
 <a name='3'></a>  
 
-## 3. Cài đặt Ansible   
+## 3. Ứng dụng của Ansible   
+- Ansible có rất nhiều ứng dụng trong triển khai hạ tầng và quản trị hệ thống.   
+   - `Provisioning`: Khởi tạo VM, container hàng loạt trong môi trường cloud dựa trên API (Openstack, AWS, Google Cloud, Azuse...)   
+   - `Configuration Management`: Quản lý cấu hình tập trung các dịch vụ tập trung, mà không cần phải tốn công chỉnh sửa cấu hình trên từng server.   
+   - `Application Deployment`: Deploy ứng dụng hành loạt, quản lý hiệu quả vòng đời của ứng dụng từ giai đoạn dev cho tới production.  
+   - `Security & Compliance`: Quản lý các chính sách về an toàn thông tin một cách đồng bộ trên trên nhiều môi trường và sản phẩm khác nhau (deploy policy, cấu hình firewall hàng loạt trên nhiều server...)    
+<a name='4'></a>  
+
+## 4. Cài đặt Ansible     
 
 - B1: Chúng ta sử dụng Repository PPA Ansible chính thức trong hệ thống, chạy lệnh sau để thêm repository    
 ```     
@@ -109,13 +121,11 @@ simba@vdt2022:~$ sudo ansible -m command -a "df -Th" webservers > /home/simba/ba
 ```      
 ![image](image3/Backup.png)      
 
-<a name='4'></a>         
+<a name='5'></a>         
 
 ## Tham khảo   
 [1]https://blog.vinahost.vn/ansible-la-gi     
 [2]https://www.tecmint.com/install-and-configure-ansible-automation-tool-in-linux/   
-
-
 
 
 
